@@ -1,10 +1,10 @@
 <?php 
 include('functions.php')
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,6 +16,7 @@ include('functions.php')
     <h2>Register</h2>
     </div>
     <form method="post" action="register.php">
+    <!-- https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database--> 
     <?php echo display_error(); ?>
 	<div class="input-group">
 		<label>Username</label>
