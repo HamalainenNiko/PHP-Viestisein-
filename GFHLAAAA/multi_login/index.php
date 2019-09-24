@@ -1,5 +1,9 @@
 <?php 
     include('functions.php');
+    if(!isLoggedIn()){
+        $_SESSION['msg'] = "You must login first";
+        header('location: login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +15,19 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<header>
+    <section id="link">   
+        <nav>
+                <li><a href="../index.html" id="left">G.F.H.L.A.A.A.A</a></li>
+              <li><a href="multi_login/login.php" id="right">Login</a></li>
+
+
+              </nav>
+    </section>    
+</header>
     <div class="header">
     <h2>Home Page</h2>
-    <div>
+    </div>
     <div class="content">
 
     <?php if (isset($_SESSION['success'])) : ?>
@@ -27,7 +41,7 @@
 </div>
 <?php endif ?>
 
-<div class="profile_info">
+		<div class="profile_info">
 			<img src="img/group2.png"  >
 
 			<div>

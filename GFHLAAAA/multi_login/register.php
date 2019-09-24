@@ -12,10 +12,18 @@ include('functions.php')
     <title>Registration</title>
 </head>
 <body>
-    <div class="header">
+<header>
+    <section id="link">   
+        <nav>
+                <li><a href="#" id="left">G.F.H.L.A.A.A.A</a></li>
+              <li><a href="login.php" id="right">Login</a></li>
+              </nav>
+    </section>    
+</header>
+
+    <form method="post" id="box"action="register.php">
     <h2>Register</h2>
-    </div>
-    <form method="post" action="register.php">
+
     <!-- https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database--> 
     <?php echo display_error(); ?>
 	<div class="input-group">

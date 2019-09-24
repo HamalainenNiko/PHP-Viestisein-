@@ -35,52 +35,115 @@ function register(){
     if (count($errors) == 0) {
         $password = md5($password_1); //Encrypt password before saving
 
-        if(isset($_POST['user_type'])) {
-            $user_type = e($_POST['user_type']);
-            $query = "INSERT INTO users (username, email, user_type, password) 
+		if (isset($_POST['user_type'])) {
+			$user_type = e($_POST['user_type']);
+			$query = "INSERT INTO users (username, email, user_type, password) 
 					  VALUES('$username', '$email', '$user_type', '$password')";
-            mysqli_query($db, $query);
-            $_SESSION['success'] = "New user created";
-            header('location: home.php');
-        }else{
-            $query = "INSERT INTO users (username, email, user_type, password)
-            VALUES('$username', '$email', 'user', '$password')";
-            mysqli_query($db, $query);
-            
-            $logged_in_user_id = mysqli_insert_id($db);
+			mysqli_query($db, $query);
+			$_SESSION['success']  = "New user successfully created!!";
+			header('location: home.php');
+		}else{
+			$query = "INSERT INTO users (username, email, user_type, password) 
+					  VALUES('$username', '$email', 'user', '$password')";
+			mysqli_query($db, $query);
 
-            $_SESSION['user'] = getUserById($logged_in_user_id);
-            $_SESSION['success'] = "logged in";
-            header('location: index.php');
-        }
-    }
+			$logged_in_user_id = mysqli_insert_id($db);
+
+			$_SESSION['user'] = getUserById($logged_in_user_id); 
+			$_SESSION['success']  = "You are now logged in";
+			header('location: index.php');				
+		}
+	}
 }
 
 function getUserById($id){
-    global $db;
-    $query = "SELECT * FROM users WHERE id=" . $id;
-    $result = mysqli_query($db, $query);
+	global $db;
+	$query = "SELECT * FROM users WHERE id=" . $id;
+	$result = mysqli_query($db, $query);
 
-    $user = mysqli_fetch_assoc($result);
-    return $user;
+	$user = mysqli_fetch_assoc($result);
+	return $user;
 }
 
 function e($val){
-    global $db;
-    return mysqli_real_escape_string($db, trim($val));
+	global $db;
+	return mysqli_real_escape_string($db, trim($val));
 }
 
-function display_error(){
-    global $errors;
+function display_error() {
+	global $errors;
+	if (count($errors) > 0){
+		echo '<div class="error">';
+			foreach ($errors as $error){
+				echo $error .'<br>';
+			}
+		echo '</div>';
+	}
+}
 
-    if(count($errors) > 0){
-        echo '<div class="error">';
-        foreach ($errors as $error){
-            echo $error .'<br>';
-        }
-        echo '</div>';
+function isLoggedIn() {
+    if(isset($_SESSION['user'])){
+        return true;
+    }else{
+        return false;
     }
 }
 
+if(isset($_GET['logout'])){
+    session_destroy();
+    unset($_SESSION['user']);
+    header("location: login.php");
+}
+
+//call login() if register button is clicked
+if(isset($_POST['login_btn'])){
+    login();
+}
+
+//user login
+function login(){
+    global $db, $username, $errors;
+
+    $username = e($_POST['username']);
+    $password = e($_POST['password']);
+
+    if(empty($username)){
+        array_push($errors, "Username is required");
+    }
+    if(empty($password)) {
+        array_push($errors, "Password is required");
+    }
+
+    if(count($errors) == 0){
+        $password = md5($password);
+
+        $query = "SELECT * FROM users WHERE username='$username' AND password = '$password' LIMIT 1";
+        $results = mysqli_query($db, $query);
+
+        if(mysqli_num_rows($results) == 1){ //Check if logged is user or admin
+            $logged_in_user = mysqli_fetch_assoc($results);
+            if($logged_in_user['user_type'] == 'admin'){
+
+                $_SESSION['user'] = $logged_in_user;
+                $_SESSION['success'] = "You have been logged in";
+                header('location: admin/home.php');
+            }else{
+                $_SESSION['user'] =  $logged_in_user;
+                $_SESSION['success'] = "You are now logged in";
+                header('location: index.php');
+            }
+        }else {
+            array_push($errors, "Wrong username/password combination");
+        }
+    }
+}
+
+function isAdmin(){
+    if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 ?>
