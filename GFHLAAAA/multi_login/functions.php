@@ -4,7 +4,6 @@ session_start();
 $db = mysqli_connect('localhost','root','','multi_login');
 
 $username = "";
-$email = "";
 $errors = array();
 
 if(isset($_POST['register_btn'])){
@@ -12,18 +11,14 @@ if(isset($_POST['register_btn'])){
 }
 
 function register(){
-    global $db, $errors, $username, $email;
+    global $db, $errors, $username;
 
     $username = e($_POST['username']);
-    $email = e($_POST['email']);
     $password_1 = e($_POST['password_1']);
     $password_2 = e($_POST['password_2']);
 
     if(empty($username)) {
         array_push($errors, "Username is required");
-    }
-    if(empty($email)){
-        array_push($errors, "Email is required");
     }
     if(empty($password_1)){
         array_push($errors, "Password is required");
@@ -37,21 +32,21 @@ function register(){
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (username, email, user_type, password) 
-					  VALUES('$username', '$email', '$user_type', '$password')";
+			$query = "INSERT INTO users (username, user_type, password) 
+					  VALUES('$username', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
 		}else{
-			$query = "INSERT INTO users (username, email, user_type, password) 
-					  VALUES('$username', '$email', 'user', '$password')";
+			$query = "INSERT INTO users (username,, user_type, password) 
+					  VALUES('$username', 'user', '$password')";
 			mysqli_query($db, $query);
 
 			$logged_in_user_id = mysqli_insert_id($db);
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); 
 			$_SESSION['success']  = "You are now logged in";
-			header('location: index.php');				
+			header('location: profile.php');				
 		}
 	}
 }
@@ -130,7 +125,7 @@ function login(){
             }else{
                 $_SESSION['user'] =  $logged_in_user;
                 $_SESSION['success'] = "You are now logged in";
-                header('location: index.php');
+                header('location: profile.php');
             }
         }else {
             array_push($errors, "Wrong username/password combination");

@@ -78,6 +78,10 @@ input[type = "text"]{
     border-radius: 24px;
 }
 
+select#user_type{
+  border-radius: 24px;
+}
+
 a#right{
   float:right;
 }
@@ -85,6 +89,18 @@ a#right{
 a#left{
   float:left;
 }
+
+#box{
+  width: 300px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #eeeeee;
+  text-align: center;
+}
+
 .button1 {
     font-family: comic sans ms;
     border: 2px solid darkviolet;

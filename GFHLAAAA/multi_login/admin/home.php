@@ -35,13 +35,12 @@ if(isset($_GET['logout'])){
     <section id="link">   
         <nav>
                 <li><a href="../index.html" id="left">G.F.H.L.A.A.A.A</a></li>
-              <li><a href="multi_login/login.php" id="right">Login</a></li>
+                <li><a href="users.php">Manage Users</a></li>
+              <li>Logged as Admin</li>
               </nav>
     </section>    
 </header>
-    <div class="header2">
         <h2>Admin - Home Page</h2>
-    </div>
     <div class="content">
         <?php if(isset($_SESSION['success'])) : ?>
             <div class="error success">
@@ -55,17 +54,17 @@ if(isset($_GET['logout'])){
         <?php endif ?>
 
         <div class="profile_info">
-            <img src="../images/admin_profile.png">
+            <img src="../img/group2.png">
 
             <div>
-                <?php if(isset($_SESSION['uesr'])) : ?>
+                <?php if(isset($_SESSION['user'])) : ?>
                     <strong><?php echo $_SESSION['user']['username']; ?></strong>
 
                     <small>
                         <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
                         <br>
-                        <a href="home.php?logout='1'" style="color: red;">logout</a>
-                        &nbsp; <a href="create_user.php"> + add user</a>
+                        <a href="home.php?logout='1'" style="color: red;">logout</a><br>
+                        &nbsp; <a href="create_user.php">Add User</a>
                     </small>
                 <?php endif ?>
             </div>
