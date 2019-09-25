@@ -26,13 +26,12 @@
         <nav>
             <a href="../index.php" id="left">G.F.H.L.A.A.A.A</a>
         </nav>
-        <div class="content">
-            <div class="profile_info">
+        <div class="profile_info">
             <img src="img/group2.png">
         <?php echo $_SESSION['user']['username']; ?>
-        <i style="color #888;"><?php echo ucfirst($_SESSION['user']['user_type']); ?>
+        <i style="color #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
         <br>
-        <a href="profile.php?logout='1'" style="color: red;">logout</a>
+        <a href="profile.php?logout='1'" style="color: red;">logout</a></i>
     </div>
     </section>    
 </header>
@@ -60,7 +59,6 @@
   <p>G.F.H.L.A.A.A.A</p>
 
   <p><button></button></p>
-</div>
 </div>
 
 </body>

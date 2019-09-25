@@ -8,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <style>
     h2 {
@@ -27,7 +30,7 @@
     </section>    
 </header>
 
-    <form method="post" id="box" action="login.php">
+    <form method="post" id="box" class="card" action="login.php">
     <h2>Login</h2>
 
         <?php echo display_error(); ?>
@@ -39,7 +42,7 @@
         <div class="input-group">
             <label>Password</label>
             <input type="password" name="password">
-        </div>
+        </div><br>
         <div class="input-group">
 			<button type="submit" class="btn" name="login_btn">Login</button>
 		</div>

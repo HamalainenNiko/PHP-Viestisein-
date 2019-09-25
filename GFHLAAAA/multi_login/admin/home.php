@@ -42,14 +42,13 @@ if(isset($_GET['logout'])){
                 <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
                 <li><a href="users.php">Manage Users</a></li>
               <li>Logged as Admin</li>
-              
               </nav>
               <div class="profile_info">
             <img src="../img/group2.png">
         <?php echo $_SESSION['user']['username']; ?>
         <i style="color #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
         <br>
-        <a href="profile.php?logout='1'" style="color: red;">logout</a></i>
+        <a href="home.php?logout='1'" style="color: red;">logout</a></i>
     </div>
     </section>    
 </header>
@@ -70,7 +69,6 @@ if(isset($_GET['logout'])){
   <h1><?php echo $_SESSION['user']['username']; ?></h1>
   <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
   <p>G.F.H.L.A.A.A.A</p>
-
   <p><button></button></p>
 </div>
 

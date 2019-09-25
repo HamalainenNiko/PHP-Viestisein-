@@ -25,6 +25,7 @@
 
       <?php  if (isset($_SESSION['user'])) : ?>
       <li><a href="multi_login/profile.php">Profile</a></li>
+      </nav>
       <div class="profile_info">
 		<img src="multi_login/img/group2.png">
 				<strong>
@@ -37,7 +38,7 @@
 				</small>
 				<?php endif ?>
 			</div>
-            </nav>
+
     </section>    
 </header>
 
