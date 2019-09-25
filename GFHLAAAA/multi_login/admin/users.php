@@ -20,6 +20,7 @@ if(isset($_GET['logout'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
 
 </head>
 <body>
@@ -32,17 +33,22 @@ if(isset($_GET['logout'])){
               </nav>
     </section>    
 </header>
+<div class="card">
+
 <?php 
 $sql = "SELECT * FROM users";
 $result = $db->query($sql);
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
-        echo "<h2>".$row["username"]." ".$row["user_type"]." ".$row["img"]."</h2>"."<br>";
+        echo "<img src=../img/group2.png style=width:100%>";
+        echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>".$row["img"];
+        echo "<p>"."G.F.H.L.A.A.A.A"."</p>"."<br>";
     } 
 }else{
         echo "0 results";
     }
 $db->close();
 ?>
+</div>
 </body>
 </html>
