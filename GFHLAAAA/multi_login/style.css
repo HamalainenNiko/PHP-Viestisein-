@@ -15,8 +15,8 @@ ul {
     padding: 0;
     list-style: none;
 }
+
 .profile_info img {
-	display: inline-block; 
 	width: 50px; 
 	height: 50px; 
 	margin: 5px;
@@ -49,7 +49,7 @@ header nav {
     margin-top: 15px;
 }
 
-img{
+#imgid {
     float: right;
     height: 85%;
     width: auto;
@@ -82,13 +82,14 @@ select#user_type{
   border-radius: 24px;
 }
 
-a#right{
+#right{
   float:right;
 }
 
-a#left{
+#left{
   float:left;
 }
+
 
 #box{
   width: 300px;
