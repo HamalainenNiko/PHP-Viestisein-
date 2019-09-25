@@ -1,10 +1,15 @@
+<?php 
+    include('multi_login/functions.php');
+
+?>
+
 <!DOCTYPE html5>
 <html lang="en">
 <head>
 <title></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="style.css">
+ <link rel="stylesheet" type="text/css" href="multi_login/style.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </head>
@@ -13,13 +18,56 @@
     <section id="link">   
         <nav>
                 <li><a href="#" id="left">G.F.H.L.A.A.A.A</a></li>
-              <li><a href="multi_login/login.php" id="right">Login</a></li>
-              </nav>
+<?php if(!isset($_SESSION['user'])) : ?>
+<li><a href="multi_login/login.php" id="right">Login</a></li>
+<?php endif ?>
+
+
+      <?php  if (isset($_SESSION['user'])) : ?>
+      <li><a href="multi_login/profile.php">Profile</a></li>
+      <div class="profile_info">
+		<img src="multi_login/img/group2.png">
+				<strong>
+          <?php echo $_SESSION['user']['username']; ?>
+        </strong>
+				<small>
+					<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
+					<br>
+					<a href="index.php?logout='1'" style="color: red;">logout</a>
+				</small>
+				<?php endif ?>
+			</div>
+            </nav>
     </section>    
 </header>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        <div class="content">
+
+
 
        <h2>G.F.H.L.A.A.A.A. is an epic gamer group.</h2>
        <p>Group was created on June 11th 2018. Originally it consisted of 7 members. <br>
