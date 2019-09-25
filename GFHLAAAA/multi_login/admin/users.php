@@ -26,7 +26,7 @@ if(isset($_GET['logout'])){
 <header>
     <section id="link">   
         <nav>
-                <li><a href="../index.html" id="left">G.F.H.L.A.A.A.A</a></li>
+                <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
                 <li><a href="home.php">Admin Home</a></li>
               <li>Logged as Admin</li>
               </nav>
@@ -37,7 +37,7 @@ $sql = "SELECT * FROM users";
 $result = $db->query($sql);
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
-        echo "<h2>".$row["username"]." ".$row["user_type"]." ".$password."</h2>"."<br>";
+        echo "<h2>".$row["username"]." ".$row["user_type"]." ".$row["img"]."</h2>"."<br>";
     } 
 }else{
         echo "0 results";
