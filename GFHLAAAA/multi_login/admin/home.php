@@ -1,11 +1,12 @@
 <?php 
-
 include('../functions.php');
 
 if(!isAdmin()){
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
 }
+
+
 
 if(isset($_GET['logout'])){
     session_destroy();
@@ -21,7 +22,11 @@ if(isset($_GET['logout'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../style.css">
     <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <style> 
+    
     .header2 {
         background: #003366;
     }
@@ -34,14 +39,13 @@ if(isset($_GET['logout'])){
 <header>
     <section id="link">   
         <nav>
-                <li><a href="../index.html" id="left">G.F.H.L.A.A.A.A</a></li>
+                <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
                 <li><a href="users.php">Manage Users</a></li>
               <li>Logged as Admin</li>
               </nav>
     </section>    
 </header>
         <h2>Admin - Home Page</h2>
-    <div class="content">
         <?php if(isset($_SESSION['success'])) : ?>
             <div class="error success">
                 <h3>
@@ -53,22 +57,14 @@ if(isset($_GET['logout'])){
             </div>
         <?php endif ?>
 
-        <div class="profile_info">
-            <img src="../img/group2.png">
+        <div class="card">
+  <img src="../img/group2.png"  style="width:100%">
+  <h1><?php echo $_SESSION['user']['username']; ?></h1>
+  <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
+  <p>G.F.H.L.A.A.A.A</p>
 
-            <div>
-                <?php if(isset($_SESSION['user'])) : ?>
-                    <strong><?php echo $_SESSION['user']['username']; ?></strong>
+  <p><button></button></p>
+</div>
 
-                    <small>
-                        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
-                        <br>
-                        <a href="home.php?logout='1'" style="color: red;">logout</a><br>
-                        &nbsp; <a href="create_user.php">Add User</a>
-                    </small>
-                <?php endif ?>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
