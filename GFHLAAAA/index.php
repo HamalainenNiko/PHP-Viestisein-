@@ -1,17 +1,16 @@
 <?php 
     include('multi_login/functions.php');
-
 ?>
-
-<!DOCTYPE html5>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="multi_login/style.css">
+<link rel="stylesheet" type="text/css" href="multi_login/style.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="multi_login/script2.js"></script>
 </head>
 <body>
 <header>
@@ -21,13 +20,11 @@
 <?php if(!isset($_SESSION['user'])) : ?>
 <li><a href="multi_login/login.php" id="right">Login</a></li>
 <?php endif ?>
-
-
       <?php  if (isset($_SESSION['user'])) : ?>
       <li><a href="multi_login/profile.php">Profile</a></li>
       </nav>
       <div class="profile_info">
-		<img src="multi_login/img/group2.png">
+		<a href="multi_login/profile.php"> <img src="multi_login/img/group2.png"></a>
 				<strong>
           <?php echo $_SESSION['user']['username']; ?>
         </strong>
@@ -38,41 +35,15 @@
 				</small>
 				<?php endif ?>
 			</div>
-
     </section>    
 </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
        <div class="content">
-
-
-
-       <h2>G.F.H.L.A.A.A.A. is an epic gamer group.</h2>
-       <p>Group was created on June 11th 2018. Originally it consisted of 7 members. <br>
-      As of today, it consists of 13 epic gamers.
+ <h2>G.F.H.L.A.A.A.A. is an epic gamer group.</h2>
+       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus quisquam, 
+       accusamus culpa impedit rem atque est facere magni ducimus esse laborum ea? Iure esse excepturi debitis facere reprehenderit! Totam ipsa ven
+       rem necessitatibus maiores consequatur. Doloremque reiciendis veritatis quod? Harum.
     <ul>They are:
         <!--Vinku-->
         <li><button class="button1" href="">Vinku</button>(FI)
@@ -139,7 +110,6 @@
           <button class="button14" id="hide14" href="">Hide</button>
           <button class="button14" id="more14" href="">Learn more</button></li>
           <input class="hide" type="text" id="Naiko" value="Naiko" readonly>
-
       </ul> 
     <ul>Left/kicked out members:
         <!--Phoe-->                          

@@ -21,27 +21,25 @@ if(isset($_GET['logout'])){
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
-
 </head>
 <body>
 <header>
     <section id="link">   
         <nav>
-                <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
-                <li><a href="home.php">Admin Home</a></li>
-              <li>Logged as Admin</li>
-              </nav>
+            <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+            <li><a href="home.php">Admin Home</a></li>
+            <li>Logged as Admin</li>
+        </nav>
     </section>    
 </header>
-<div class="card">
-
-<?php 
+ <div class="card"> 
+<?php
 $sql = "SELECT * FROM users";
 $result = $db->query($sql);
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
         echo "<img src=../img/group2.png style=width:100%>";
-        echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>".$row["img"];
+        echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>";
         echo "<p>"."G.F.H.L.A.A.A.A"."</p>"."<br>";
     } 
 }else{
@@ -49,6 +47,6 @@ if($result->num_rows > 0) {
     }
 $db->close();
 ?>
-</div>
+ </div> 
 </body>
 </html>
