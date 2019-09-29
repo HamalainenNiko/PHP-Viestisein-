@@ -45,10 +45,14 @@ if(isset($_GET['logout'])){
               </nav>
               <div class="profile_info">
             <img src="../img/group2.png">
+            <strong>
         <?php echo $_SESSION['user']['username']; ?>
-        <i style="color #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
+</strong>
+    <small>
+        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
         <br>
         <a href="home.php?logout='1'" style="color: red;">logout</a></i>
+    </small>
     </div>
     </section>    
 </header>
