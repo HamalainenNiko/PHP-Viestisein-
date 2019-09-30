@@ -26,6 +26,7 @@
     <section id="link">   
         <nav>
             <a href="../index.php" id="left">G.F.H.L.A.A.A.A</a>
+            <a href="profile_edit.php">Edit Profile</a>
         </nav>
         <div class="profile_info" id="myForm">
             <img src="img/group2.png">

@@ -141,4 +141,11 @@ function isAdmin(){
     }
 }
 
+if(isset($_POST['save_btn'])){
+    save();
+}
+//save() function saves edited user profile data and updates it into SQL server
+function save(){
+
+}
 ?>
