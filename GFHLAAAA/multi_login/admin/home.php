@@ -39,9 +39,8 @@ if(isset($_GET['logout'])){
 <header>
     <section id="link">   
         <nav>
-                <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+                <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
                 <li><a href="users.php">Manage Users</a></li>
-              <li>Logged as Admin</li>
               </nav>
               <div class="profile_info">
             <img src="../img/group2.png">
@@ -73,6 +72,8 @@ if(isset($_GET['logout'])){
   <h1><?php echo $_SESSION['user']['username']; ?></h1>
   <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
   <p>G.F.H.L.A.A.A.A</p>
+  <h5><a href="../profile_edit.php">Edit Profile</a></h5>
+  <h6><a href="reset-password.php">Change Password</h6>
   <p><button></button></p>
 </div>
 

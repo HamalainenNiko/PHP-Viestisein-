@@ -6,14 +6,6 @@ if(!isLoggedIn()){
     header('location: login.php');
 }
 
-$sql="SELECT username FROM users WHERE id='".$_SESSION['id']."' LIMIT 1";
-
-$result = mysqli_query($db, $sql);
-
-$row = mysqli_fetch_array($result);
-
-$diary=$row['name'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,17 +18,25 @@ $diary=$row['name'];
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="bigcard" action="profile_edit.php" method="post">
+<header>
+    <section id="link">   
+        <nav>
+                <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+              <li><a href="profile.php" id="right">Profile</a></li>
+              </nav>
+    </section>    
+</header>
+    <form class="card" id="update_form" action="profile_edit.php" method="post">
         <img class="pfp" src="img/group2.png" style="width:100%">
         <h6>Upload Profile Pic</h6>
-        <input type="file">
+        <input type="file" name="pfp">
         <h3>Info</h3>
             <label class="name">Name:</label>
-            <input class="form-control" value="" name="name" type="text">
+            <input class="profile-edit" type="text" value="<?php echo $_SESSION['user']['username']?>" name="name" />
 <br>
             <label class="info">Description:</label>
-            <input class="form-control" value="" name="info" type="textbox">
-            <button type="submit">Save</button>  
+            <textarea class="profile-edit" value="" name="info" cols="35" rows="10" ></textarea>
+            <button type="submit" name="update_btn">Save</button>  
         </div> 
     </form>
 </body>

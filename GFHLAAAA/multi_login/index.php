@@ -1,5 +1,5 @@
 <?php 
-    include('multi_login/functions.php');
+    include('functions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,10 +7,10 @@
 <title></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="multi_login/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="multi_login/script2.js"></script>
+<script type="text/javascript" src="script2.js"></script>
 </head>
 <body>
 <header>
@@ -18,13 +18,13 @@
         <nav>
                 <li><a href="#" id="left">G.F.H.L.A.A.A.A</a></li>
 <?php if(!isset($_SESSION['user'])) : ?>
-<li><a href="multi_login/login.php" id="right">Login</a></li>
+<li><a href="login.php" id="right">Login</a></li>
 <?php endif ?>
       <?php  if (isset($_SESSION['user'])) : ?>
-      <li><a href="multi_login/profile.php">Profile</a></li>
+      <li><a href="profile.php">Profile</a></li>
       </nav>
       <div class="profile_info">
-		<a href="multi_login/profile.php"> <img src="multi_login/img/group2.png"></a>
+		<a href="profile.php"> <img src="img/group2.png"></a>
 				<strong>
           <?php echo $_SESSION['user']['username']; ?>
         </strong>
@@ -119,10 +119,8 @@
           <input class="hide" type="text" id="Phoe" value="Phoe" readonly>
     </ul>
   </p>
-</div>
-<div id="img">
-<img src="group2.png">
-</div>
 
+
+</div>
 </body>
 </html>

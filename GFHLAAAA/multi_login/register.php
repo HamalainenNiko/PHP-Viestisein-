@@ -15,7 +15,7 @@ include('functions.php')
 <header>
     <section id="link">   
         <nav>
-                <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+                <li><a href="index.php" id="left">G.F.H.L.A.A.A.A</a></li>
               <li><a href="login.php" id="right">Login</a></li>
               </nav>
     </section>    

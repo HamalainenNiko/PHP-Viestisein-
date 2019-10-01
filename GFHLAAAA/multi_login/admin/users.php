@@ -21,12 +21,13 @@ if(isset($_GET['logout'])){
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 </head>
 <body>
 <header>
     <section id="link">   
         <nav>
-            <li><a href="../../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+            <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
             <li><a href="home.php">Admin Home</a></li>
             <li>Logged as Admin</li>
         </nav>

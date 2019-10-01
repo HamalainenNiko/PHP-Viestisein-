@@ -20,13 +20,13 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script2.js"></script>
+    
 </head>
 <body>
 <header>
     <section id="link">   
         <nav>
-            <a href="../index.php" id="left">G.F.H.L.A.A.A.A</a>
-            <a href="profile_edit.php">Edit Profile</a>
+            <a href="index.php" id="left">G.F.H.L.A.A.A.A</a>
         </nav>
         <div class="profile_info" id="myForm">
             <img src="img/group2.png">
@@ -50,11 +50,15 @@
         </h3>
     </div>
     <?php endif ?>
-    <div class="card">
+    <div id="box" class="card">
   <img src="img/group2.png"  style="width:100%">
   <h1><?php echo $_SESSION['user']['username']; ?></h1>
   <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
   <p>G.F.H.L.A.A.A.A</p>
+  <h5><a href="profile_edit.php">Edit Profile</a></h5>
+  <h6><a href="reset-password.php">Change Password</h6>
+
+
   <p><button></button></p>
 </div>
 </body>

@@ -13,18 +13,13 @@
 
 </head>
 <style>
-    h2 {
-        padding: 0 10px;
-    }
-    form {
-        padding: 0 10px;
-    }
+
 </style>
 <body>
 <header>
     <section id="link">   
         <nav>
-                <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+                <li><a href="index.php" id="left">G.F.H.L.A.A.A.A</a></li>
               <li><a href="login.php" id="right">Login</a></li>
               </nav>
     </section>    
@@ -39,10 +34,10 @@
             <label>Username</label>
             <input type="text" name="username">
         </div>
-        <div class="input-group">
+        <div  class="input-group">
             <label>Password</label>
             <input type="password" name="password">
-        </div><br>
+        </div><br><br>
         <div class="input-group">
 			<button type="submit" class="btn" name="login_btn">Login</button>
 		</div>

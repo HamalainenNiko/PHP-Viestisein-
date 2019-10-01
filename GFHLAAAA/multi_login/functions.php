@@ -6,6 +6,8 @@ $db = mysqli_connect('localhost','root','','multi_login');
 $username = "";
 $errors = array();
 
+
+
 if(isset($_POST['register_btn'])){
     register();
 }
@@ -141,11 +143,31 @@ function isAdmin(){
     }
 }
 
-if(isset($_POST['save_btn'])){
-    save();
+if(isset($_POST['update_btn'])){
+    update();
 }
-//save() function saves edited user profile data and updates it into SQL server
-function save(){
 
+//update function is for updating user profile info
+function update(){
+    global $db;
+$name = $_POST['name'];
+$desc = $_POST['info'];
+$id = $_SESSION['user']['id'];
+
+
+$query = "UPDATE users SET username='".$name."',
+info='".$desc."' WHERE id = $id";
+
+$result = mysqli_query($db, $query);
+
+if($result){
+    echo 'Data Updated';
+session_destroy();
+header('location: login.php');
+
+}else {
+    echo 'Data not Updated';
+}
+mysqli_close($db);
 }
 ?>
