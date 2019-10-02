@@ -30,7 +30,7 @@ function register(){
     }
 
     if (count($errors) == 0) {
-        $password = md5($password_1); //Encrypt password before saving
+        $password = base64_encode($password_1); //Encrypt password before saving
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
@@ -112,7 +112,7 @@ function login(){
     }
 
     if(count($errors) == 0){
-        $password = md5($password);
+        $password = base64_encode($password);
 
         $query = "SELECT * FROM users WHERE username='$username' AND password = '$password' LIMIT 1";
         $results = mysqli_query($db, $query);
@@ -150,24 +150,23 @@ if(isset($_POST['update_btn'])){
 //update function is for updating user profile info
 function update(){
     global $db;
-$name = $_POST['name'];
-$desc = $_POST['info'];
-$id = $_SESSION['user']['id'];
+    $name = $_POST['name'];
+    $desc = $_POST['info'];
+    $id = $_SESSION['user']['id'];
+
+    $query = "UPDATE users SET username='".$name."',
+    info='".$desc."' WHERE id = $id";
+
+    $result = mysqli_query($db, $query);
+
+    if($result){
+        echo 'Data Updated';
+        header('location: login.php');
+    }else {
+        echo 'Data not Updated';
+    }
+    mysqli_close($db);
+    }
 
 
-$query = "UPDATE users SET username='".$name."',
-info='".$desc."' WHERE id = $id";
-
-$result = mysqli_query($db, $query);
-
-if($result){
-    echo 'Data Updated';
-session_destroy();
-header('location: login.php');
-
-}else {
-    echo 'Data not Updated';
-}
-mysqli_close($db);
-}
 ?>
