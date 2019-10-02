@@ -25,16 +25,29 @@ if(isset($_GET['logout'])){
 </head>
 <body>
 <header>
-    <section id="link">   
+<section id="link">   
         <nav>
-            <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
-            <li><a href="home.php">Admin Home</a></li>
-            <li>Logged as Admin</li>
-        </nav>
+                <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+                <li><a href="users.php">Manage Users</a></li>
+                <li><a href="create_user.php">Create User</a></li>
+
+              </nav>
+              <div class="profile_info">
+            <img src="../img/group2.png">
+            <strong>
+        <?php echo $_SESSION['user']['username']; ?>
+</strong>
+    <small>
+        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
+        <br>
+        <a href="home.php?logout='1'" style="color: red;">logout</a></i>
+    </small>
+    </div>
     </section>    
 </header>
  
 <?php
+global $password;
 $sql = "SELECT * FROM users";
 $result = $db->query($sql);
 if($result->num_rows > 0) {
@@ -42,7 +55,7 @@ if($result->num_rows > 0) {
         echo '<div class=card>';
         echo "<img src=../img/group2.png style=width:100%>";
         echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>";
-        echo "<p>"."G.F.H.L.A.A.A.A"."</p>";  
+        echo "<p>"."G.F.H.L.A.A.A.A"."</p>"; 
         echo '<p><button></button></p>';
         echo '</div>';
     } 
