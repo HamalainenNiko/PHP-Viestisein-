@@ -16,6 +16,9 @@ if(!isLoggedIn()){
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="style.css">
+
+    <script src='spectrum.js'></script>
+<link rel='stylesheet' href='spectrum.css' />          
 </head>
 <body>
 <header>
@@ -35,7 +38,7 @@ if(!isLoggedIn()){
             <input class="profile-edit" type="text" value="<?php echo $_SESSION['user']['username']?>" name="name" />
 <br>
             <label class="info">Description:</label>
-            <textarea class="profile-edit" value="" name="info" cols="35" rows="10" ></textarea>
+            <textarea class="profile-edit" value="<?php echo $_SESSION['user']['info']?>" name="info" cols="35" rows="10" ></textarea>
             <button type="submit" name="update_btn">Save</button>  
         </div> 
     </form>
