@@ -30,9 +30,7 @@ if(isset($_GET['logout'])){
     .header2 {
         background: #003366;
     }
-    button[name=register_btn] {
-        background: #003366;
-    }
+
     </style>
 </head>
 <body>
@@ -41,6 +39,7 @@ if(isset($_GET['logout'])){
         <nav>
                 <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
                 <li><a href="users.php">Manage Users</a></li>
+                <li><a href="create_user.php">Create User</a></li>
               </nav>
               <div class="profile_info">
             <img src="../img/group2.png">
