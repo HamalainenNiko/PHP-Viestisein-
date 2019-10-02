@@ -50,7 +50,7 @@
         </h3>
     </div>
     <?php endif ?>
-    <div id="box" class="card">
+    <div  class="card">
   <img src="img/group2.png"  style="width:100%">
   <h1><?php echo $_SESSION['user']['username']; ?></h1>
   <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
