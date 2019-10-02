@@ -153,9 +153,8 @@ function update(){
     $name = $_POST['name'];
     $desc = $_POST['info'];
     $id = $_SESSION['user']['id'];
-
-    $query = "UPDATE users SET username='".$name."',
-    info='".$desc."' WHERE id = $id";
+    $query = "UPDATE users SET username = '".$name."', 
+    info = '".$desc."' WHERE id = '".$id."'"; 
 
     $result = mysqli_query($db, $query);
 
