@@ -52,10 +52,9 @@
         while($row = $result->fetch_assoc()){
             $name=$row['username'];
 
-            echo '<br><a href=info.php?id=' .$row['id'].'><button id='.$name.'  class=button1>';
+            echo '<br><br><a href=info.php?id=' .$row['id'].'><button id='.$name.'  class=button1>';
             echo $name;
-            echo '</button></a><br>';
-            echo '<input class="hide" type="text" id='.$row['info'].' value='.$row['info'].' readonly>';
+            echo '</button></a>';
           }}
           ?>
         <!--Vinku-->

@@ -72,7 +72,7 @@ if(isset($_GET['logout'])){
   <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
   <p>G.F.H.L.A.A.A.A</p>
   <h5><a href="../profile_edit.php">Edit Profile</a></h5>
-  <h6><a href="reset-password.php">Change Password</h6>
+  <h6><a href="../reset-password.php">Change Password</h6>
   <p><button></button></p>
 </div>
 
