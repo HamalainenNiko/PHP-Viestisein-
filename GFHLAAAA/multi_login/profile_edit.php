@@ -42,5 +42,28 @@ if(!isLoggedIn()){
             <button type="submit" name="update_btn">Save</button>  
         </div> 
     </form>
+
+
+    <div class="container">
+    <div class="row">
+        <div class="col-4 offset-md-4 form-div"></div>
+        <form action="profile_edit.php" class="card" method="post" enctype="multipart/form-data">
+        <h3 class="text-center">Create Profile</h3>
+            <div class="form-group">
+            <label for="profileImage">Profile Image</label>
+            <input type="file" name="profileImage" id="" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="bio"></label>
+            <textarea id = "bio" name = "bio" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+            <button type="submit" name="save-user" class="btn btn-primary btn-block">Save User</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 </body>
 </html>

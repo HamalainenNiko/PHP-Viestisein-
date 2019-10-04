@@ -5,6 +5,8 @@ $db = mysqli_connect('localhost','root','','multi_login');
 
 $username = "";
 $errors = array();
+$msg = "";
+$css_class = "";
 
 
 
@@ -165,6 +167,23 @@ function update(){
         echo 'Data not Updated';
     }
     mysqli_close($db);
+    }
+
+    if(isset($_POST['save-user'])){
+        echo "<pre>", print_r($_FILES['profileImage']['name']), "</pre>";
+        $bio = $_POST['bio'];
+        $profileImgName = time() . '_' . $_FILES['profileImage']['name'];
+
+        $target = 'images/' . $profileImgName;
+
+        if(move_uploaded_file($_FILES['profileImage']['tmp_name'], $target)){
+            $msg = "Image uploaded"
+            $css_class = "alert-success";
+        }else{
+            $msg = "Failed to upload";
+            $css_class = "alert-danger";
+        }
+
     }
 
 
