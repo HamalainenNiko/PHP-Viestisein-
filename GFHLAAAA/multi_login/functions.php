@@ -6,7 +6,7 @@ $db = mysqli_connect('localhost','root','','multi_login');
 $username = "";
 $errors = array();
 $msg = "";
-$css_class = "";
+$msg_class = "";
 
 
 
@@ -169,22 +169,46 @@ function update(){
     mysqli_close($db);
     }
 
-    if(isset($_POST['save-user'])){
-        echo "<pre>", print_r($_FILES['profileImage']['name']), "</pre>";
-        $bio = $_POST['bio'];
-        $profileImgName = time() . '_' . $_FILES['profileImage']['name'];
 
-        $target = 'images/' . $profileImgName;
 
-        if(move_uploaded_file($_FILES['profileImage']['tmp_name'], $target)){
-            $msg = "Image uploaded"
-            $css_class = "alert-success";
-        }else{
-            $msg = "Failed to upload";
-            $css_class = "alert-danger";
-        }
 
+
+
+//new test batch of update()
+if(isset($_POST['save_profile'])){
+
+    $id = $_SESSION['user']['id'];
+
+    $bio = stripslashes($_POST['bio']);
+    $profileImageName = time() . '-' . $_FILES['profileImage']['name'];
+
+    $target_dir = "images/";
+    $target_file = $target_dir . basename($profileImageName);
+
+    if($_FILES['profileImage']['size'] > 200000) {
+        $msg = "Image size shouldn't be greater than 200Kb";
+        $msg_class = "alert-danger";
     }
 
+    if(file_exists($target_file)){
+        $msg = "File already exists";
+        $msg_class = "alert-danger";
+    }
 
+    if(empty($error)){
+        if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
+            $sql = "UPDATE users SET profile_image='$profileImageName', info= '$bio' WHERE id = '$id'";
+            if(mysqli_query($db, $sql)){
+                $msg = "Image uploaded and saved in the Database";
+                $msg_class = "alert-success";
+            } else {
+                $msg = "There was an error in the database";
+                $msg_class = "alert-danger";
+            }
+        }else{
+            $error = "There was an error while uploading the file";
+            $msg = "alert-danger";
+        }
+    }
+}
 ?>
