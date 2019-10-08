@@ -53,7 +53,7 @@ $result = $db->query($sql);
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
         echo '<div class=card>';
-        echo "<img src=../img/group2.png style=width:100%>";
+        echo "<img src='../images/" .$row['profile_image']."' width=100%/>";
         echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>";
         echo "<p>"."G.F.H.L.A.A.A.A"."</p>"; 
         echo '<p><button></button></p>';

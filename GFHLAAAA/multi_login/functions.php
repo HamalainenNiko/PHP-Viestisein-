@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$_SESSION['LAST_ACTIVITY'] = time();
 
 $db = mysqli_connect('localhost','root','','multi_login');
 
@@ -179,6 +180,7 @@ if(isset($_POST['save_profile'])){
 
     $id = $_SESSION['user']['id'];
 
+    $user = stripslashes($_POST['username']);
     $bio = stripslashes($_POST['bio']);
     $profileImageName = time() . '-' . $_FILES['profileImage']['name'];
 
@@ -197,18 +199,23 @@ if(isset($_POST['save_profile'])){
 
     if(empty($error)){
         if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
-            $sql = "UPDATE users SET profile_image='$profileImageName', info= '$bio' WHERE id = '$id'";
+            $sql = "UPDATE users SET profile_image='$profileImageName',username= '$user' ,info= '$bio' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){
                 $msg = "Image uploaded and saved in the Database";
                 $msg_class = "alert-success";
+                $_SESSION['user']['profile_image'] = $profileImageName;
+                $_SESSION['user']['username'] = $user;
             } else {
                 $msg = "There was an error in the database";
                 $msg_class = "alert-danger";
             }
         }else{
-            $error = "There was an error while uploading the file";
-            $msg = "alert-danger";
+            $msg = "There was an error while uploading the file";
+            $msg_class = "alert-danger";
         }
     }
 }
+
+
+
 ?>

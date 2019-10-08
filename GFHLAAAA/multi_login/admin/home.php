@@ -67,13 +67,28 @@ if(isset($_GET['logout'])){
         <?php endif ?>
 
         <div class="card">
-  <img src="../img/group2.png"  style="width:100%">
-  <h1><?php echo $_SESSION['user']['username']; ?></h1>
-  <p class="title"> <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i></p>
-  <p>G.F.H.L.A.A.A.A</p>
-  <h5><a href="../profile_edit.php">Edit Profile</a></h5>
-  <h6><a href="../reset-password.php">Change Password</h6>
-  <p><button></button></p>
+
+
+<!--   echo "<img src='images/" .$row['profile_image']."' />"; -->
+<?php 
+    $id = $_SESSION['user']['id'];
+    $id = mysqli_real_escape_string($db,$id);
+    $sql = "SELECT * FROM users WHERE id='" . $id . "'";
+    $result = mysqli_query($db, $sql);
+    
+    while($row = mysqli_fetch_array($result)){
+        echo "<img src='../images/" .$row['profile_image']."' width=100%/>";
+        echo '<h1>'.$row['username'].'</h1>';
+        echo '<p class=title><i  style=color: #888;>('.$_SESSION['user']['user_type'].') <br></p>';
+        echo '<p>Bio: <br>'.$row['info'].'</p>';
+        echo '<p>G.F.H.L.A.A.A.A</p>';
+        echo '<h5><a href="../profile_edit.php">Edit Profile</a></h5>';
+        echo '<h6><a href="../reset-password.php">Change Password</h6>';
+        echo '<p><button></button></p>';
+        
+    }
+    ?>
+
 </div>
 
 </body>

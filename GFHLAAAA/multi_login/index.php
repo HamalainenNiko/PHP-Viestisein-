@@ -24,7 +24,10 @@
       <li><a href="profile.php">Profile</a></li>
       </nav>
       <div class="profile_info">
-		<a href="profile.php"> <img src="img/group2.png"></a>
+		<a href="profile.php"> <img src=<?php echo 'images/'. $_SESSION['user']['profile_image']; ?>>
+    </a>
+
+
 				<strong>
           <?php echo $_SESSION['user']['username']; ?>
         </strong>
