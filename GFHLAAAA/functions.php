@@ -5,6 +5,7 @@ $_SESSION['LAST_ACTIVITY'] = time();
 $db = mysqli_connect('localhost','root','','multi_login');
 
 $username = "";
+$email = "";
 $errors = array();
 $msg = "";
 $msg_class = "";
@@ -19,11 +20,15 @@ function register(){
     global $db, $errors, $username;
 
     $username = e($_POST['username']);
+    $email = e($_POST['email']);
     $password_1 = e($_POST['password_1']);
     $password_2 = e($_POST['password_2']);
 
     if(empty($username)) {
         array_push($errors, "Username is required");
+    }
+    if(empty($email)){
+        array_push($errors, "Email is required");
     }
     if(empty($password_1)){
         array_push($errors, "Password is required");
@@ -32,25 +37,38 @@ function register(){
         array_push($errors, "Given passwords don't match");
     }
 
+    $user_check_query ="SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
+    $result = mysqli_query($db, $user_check_query);
+    $user = mysqli_fetch_assoc($result);
+
+    if($user){
+        if($user['username'] === $username){
+            array_push($errors, "Username is already taken");
+        }
+        if($user['email'] === $email){
+            array_push($errors, "User has already been registered with this email");
+        }
+    }
+
     if (count($errors) == 0) {
         $password = base64_encode($password_1); //Encrypt password before saving
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (username, user_type, password) 
-					  VALUES('$username', '$user_type', '$password')";
+			$query = "INSERT INTO users (username, user_type, password, email) 
+					  VALUES('$username', '$user_type', '$password', '$email')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
 		}else{
-			$query = "INSERT INTO users (username,, user_type, password) 
-					  VALUES('$username', 'user', '$password')";
+			$query = "INSERT INTO users (username, user_type, password, email) 
+					  VALUES('$username', 'user', '$password', '$email')";
 			mysqli_query($db, $query);
 
 			$logged_in_user_id = mysqli_insert_id($db);
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); 
-			$_SESSION['success']  = "You are now logged in";
+            $_SESSION['success']  = "You are now logged in";
 			header('location: profile.php');				
 		}
 	}
