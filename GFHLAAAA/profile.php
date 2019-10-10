@@ -50,21 +50,26 @@
         </h3>
     </div>
     <?php endif ?>
-    <div  class="card"><?
+    <div  class="card">
+
+
+
+<?php 
     $id = $_SESSION['user']['id'];
-    $id = mysqli_real_escape_string($db, $id);
+    $id = mysqli_real_escape_string($db,$id);
     $sql = "SELECT * FROM users WHERE id='" . $id . "'";
     $result = mysqli_query($db, $sql);
-
+    
     while($row = mysqli_fetch_array($result)){
         echo "<img src='images/" .$row['profile_image']."' width=100%/>";
         echo '<h1>'.$row['username'].'</h1>';
         echo '<p class=title><i  style=color: #888;>('.$_SESSION['user']['user_type'].') <br></p>';
         echo '<p>Bio: <br>'.$row['info'].'</p>';
         echo '<p>G.F.H.L.A.A.A.A</p>';
-        echo '<h5><a href="../profile_edit.php">Edit Profile</a></h5>';
-        echo '<h6><a href="../reset-password.php">Change Password</h6>';
+        echo '<h5><a href="profile_edit.php">Edit Profile</a></h5>';
+        echo '<h6><a href="password-reset/reset-password.php">Change Password</h6>';
         echo '<p><button></button></p>';
+        
     }
     ?>
     </div>
