@@ -42,7 +42,8 @@
 			<button type="submit" class="btn" name="login_btn">Login</button>
 		</div>
         <p>
-            <a href="register.php" >Sign up</a>
+            <p><a href="register.php" >Sign up</a></p> 
+            <p><a hreF="password-reset/enter_email.php">Forgot your password?</a></p>
         </p>
     </form>
 </body>
