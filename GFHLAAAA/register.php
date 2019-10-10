@@ -24,13 +24,16 @@ include('functions.php')
     <form method="post" id="box"action="register.php">
     <h2>Register</h2>
 
-    <!-- https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database--> 
+    <!-- https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database --> 
     <?php echo display_error(); ?>
 	<div class="input-group">
 		<label>Username</label>
 		<input type="text" name="username" value="<?php echo $username; ?>">
-	</div>
-
+    </div>
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" value="">
+    </div>
 	<div class="input-group">
 		<label>Password</label>
 		<input type="password" name="password_1">
