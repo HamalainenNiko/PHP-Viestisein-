@@ -42,7 +42,7 @@ if(isset($_GET['logout'])){
                 <li><a href="create_user.php">Create User</a></li>
               </nav>
               <div class="profile_info">
-            <img src="../img/group2.png">
+            <img src=<?php echo '../images/'.$_SESSION['user']['profile_image']; ?>>
             <strong>
         <?php echo $_SESSION['user']['username']; ?>
 </strong>

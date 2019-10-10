@@ -29,7 +29,7 @@
             <a href="index.php" id="left">G.F.H.L.A.A.A.A</a>
         </nav>
         <div class="profile_info" id="myForm">
-            <img src="img/group2.png">
+            <img src=<?php echo 'images/'.$_SESSION['user']['profile_image']; ?>>
         <?php echo $_SESSION['user']['username']; ?>
         <i  style="color #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
         <br>

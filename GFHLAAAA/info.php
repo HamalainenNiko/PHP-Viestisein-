@@ -45,7 +45,7 @@
       $result = mysqli_query($db, $sql);
 
       while($row = mysqli_fetch_array($result)){
-        echo "<img src='images/" .$row['profile_image']."' />";
+        echo "<img src='images/" .$row['profile_image']."' width=100%/>";
         echo '<h1>'.$row['username'].'</h1>';
         echo '<p class=title><i  style=color: #888;>('.$row['user_type'].') <br></p>';
         echo '<p>Bio: <br>'.$row['info'].'</p>';

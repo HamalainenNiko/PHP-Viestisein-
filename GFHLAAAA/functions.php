@@ -150,38 +150,18 @@ if(isset($_POST['update_btn'])){
     update();
 }
 
-//update function is for updating user profile info
-function update(){
-    global $db;
-    $name = $_POST['name'];
-    $desc = $_POST['info'];
-    $id = $_SESSION['user']['id'];
-    $query = "UPDATE users SET username = '".$name."', 
-    info = '".$desc."' WHERE id = '".$id."'"; 
-
-    $result = mysqli_query($db, $query);
-
-    if($result){
-        echo 'Data Updated';
-        header('location: login.php');
-    }else {
-        echo 'Data not Updated';
-    }
-    mysqli_close($db);
-    }
 
 
 
 
-
-
-//new test batch of update()
+//updates database information
 if(isset($_POST['save_profile'])){
+    global $db;
 
     $id = $_SESSION['user']['id'];
 
-    $user = stripslashes($_POST['username']);
-    $bio = stripslashes($_POST['bio']);
+    $user = $_POST['username'];
+    $info = mysqli_real_escape_string($db, $_POST['bio']);
     $profileImageName = time() . '-' . $_FILES['profileImage']['name'];
 
     $target_dir = "images/";
@@ -199,12 +179,13 @@ if(isset($_POST['save_profile'])){
 
     if(empty($error)){
         if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
-            $sql = "UPDATE users SET profile_image='$profileImageName',username= '$user' ,info= '$bio' WHERE id = '$id'";
+            $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){
-                $msg = "Image uploaded and saved in the Database";
+                $msg = "New information uploaded and saved in the Database";
                 $msg_class = "alert-success";
                 $_SESSION['user']['profile_image'] = $profileImageName;
                 $_SESSION['user']['username'] = $user;
+                header('location: profile.php');
             } else {
                 $msg = "There was an error in the database";
                 $msg_class = "alert-danger";
