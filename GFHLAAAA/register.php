@@ -31,7 +31,7 @@ include('functions.php')
 		<input type="text" name="username" value="<?php echo $username; ?>">
     </div>
     <div class="input-group">
-        <label>Email</label>
+        <label>Email</label><br>
         <input type="email" name="email" value="">
     </div>
 	<div class="input-group">

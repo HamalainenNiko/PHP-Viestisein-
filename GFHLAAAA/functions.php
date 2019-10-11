@@ -122,6 +122,7 @@ if(isset($_POST['login_btn'])){
 function login(){
     global $db, $username, $errors;
 
+    
     $username = e($_POST['username']);
     $password = e($_POST['password']);
 

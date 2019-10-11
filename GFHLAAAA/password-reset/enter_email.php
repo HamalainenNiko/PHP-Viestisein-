@@ -9,11 +9,10 @@
     <title>Password Reset</title>
 </head>
 <body>
-    // https://codewithawa.com/posts/password-reset-system-in-php
     <form class="login-form" action="enter_email.php" method="post">
         <h2 clasS="form-title">Reset Password</h2>
 
-        <?php include('messages.php'); ?>
+        <?php include('../messages.php'); ?>
         <div class="form-group">
             <label>Your email address</label>
             <input type="email" name="email">

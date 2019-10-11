@@ -10,7 +10,7 @@
 <body>
     <form action="new_password.php" class="login-form" method="post">
         <h2 class="form-title">New password</h2>
-        <?php include('messages.php'); ?>
+        <?php include('../messages.php'); ?>
         <div class="form-group">
             <label>New password</label>
             <input type="password" name="new_pass">

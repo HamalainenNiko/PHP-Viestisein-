@@ -83,7 +83,7 @@ if(isset($_GET['logout'])){
         echo '<p>Bio: <br>'.$row['info'].'</p>';
         echo '<p>G.F.H.L.A.A.A.A</p>';
         echo '<h5><a href="../profile_edit.php">Edit Profile</a></h5>';
-        echo '<h6><a href="../reset-password.php">Change Password</h6>';
+        echo '<h6><a href="../password-reset/enter_email.php">Change Password</h6>';
         echo '<p><button></button></p>';
         
     }
