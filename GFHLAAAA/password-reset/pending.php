@@ -1,5 +1,5 @@
 <?php 
-include('password-reset/app_logic.php');
+include('app_logic.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

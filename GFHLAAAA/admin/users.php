@@ -26,24 +26,23 @@ if(isset($_GET['logout'])){
 <body>
 <header>
 <section id="link">   
-        <nav>
-                <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
-                <li><a href="users.php">Manage Users</a></li>
-                <li><a href="create_user.php">Create User</a></li>
-
-              </nav>
-              <div class="profile_info">
-            <img src="../img/group2.png">
-            <strong>
-        <?php echo $_SESSION['user']['username']; ?>
+<nav>
+        <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
+        <li><a href="users.php">Manage Users</a></li>
+        <li><a href="create_user.php">Create User</a></li>
+      </nav>
+      <div class="profile_info">
+      <img src=<?php echo '../images/'.$_SESSION['user']['profile_image']; ?>>
+    <strong>
+<?php echo $_SESSION['user']['username']; ?>
 </strong>
-    <small>
-        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
-        <br>
-        <a href="home.php?logout='1'" style="color: red;">logout</a></i>
-    </small>
-    </div>
-    </section>    
+<small>
+    <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
+    <br>
+    <a href="home.php?logout='1'" style="color: red;">logout</a></i>
+</small>
+</div>
+</section>    
 </header>
  
 <?php
@@ -52,12 +51,17 @@ $sql = "SELECT * FROM users";
 $result = $db->query($sql);
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
+        if(!$row['info']){
+            $row['info'] = "No information given";
+        }
+
+
         echo '<div class=card>';
         echo "<img src='../images/" .$row['profile_image']."' width=100%/>";
         echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>";
-        echo "<p>"."G.F.H.L.A.A.A.A"."</p>"; 
-        echo '<p><button></button></p>';
-        echo '</div>';
+        echo "<p>".$row['info']."</p>"; 
+        echo '<p><button></button></p></div>';
+        echo'<br>';
     } 
 }else{
         echo "0 results";

@@ -197,6 +197,9 @@ if(isset($_POST['save_profile'])){
     }
 
     if(empty($error)){
+        if(!$profileImageName){
+            $profileImageName = $_SESSION['user']['profile_image'];
+        }
         if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
             $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){

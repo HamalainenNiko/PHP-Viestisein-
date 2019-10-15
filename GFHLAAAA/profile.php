@@ -51,9 +51,6 @@
     </div>
     <?php endif ?>
     <div  class="card">
-
-
-
 <?php 
     $id = $_SESSION['user']['id'];
     $id = mysqli_real_escape_string($db,$id);

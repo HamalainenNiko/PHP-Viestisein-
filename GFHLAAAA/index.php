@@ -39,8 +39,8 @@
     </section>    
   </header>
   <div class="content">
-    <h2>G.F.H.L.A.A.A.A. is an epic gamer group.</h2>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus quisquam, 
+    <h2>This is not funny guys.</h2>
+    <p> Not funny didn't laugh.<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus quisquam, 
     accusamus culpa impedit rem atque est facere <br> magni ducimus esse laborum ea? Iure esse excepturi debitis facere reprehenderit! Totam ipsa ven
     rem necessitatibus maiores <br> consequatur. Doloremque reiciendis veritatis quod? Harum.
     <ul>They are:
@@ -57,11 +57,7 @@
         }
       }
     ?>
-        <!--Vinku-->
-<!--         <li><button class="button1" href="">Vinku</button>(FI)
-          <button class="button1" id="hide1" href="">Hide</button>
-          <button class="button1" id="more1" href="">Learn more</button></li>
-        <input class="hide" type="text" id="Vinku" value="Vinku"  readonly> -->
+
 </div>
 </body>
 </html>
