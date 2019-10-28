@@ -49,10 +49,11 @@ if(isset($_POST['reset-password'])){
         $results = mysqli_query($db, $sql);
 
         $to = $email;
-        $subject = "Reset your password on GFHLAAAA";
-        $msg = "Click on this <a href=\"new_password.php?token=" .$token. "\">link</a> to reset your password";
+        $subject = "Reset your password ";
+        $msg = "Click on this <a href=new_password.php?token=" .$token. ">link</a> to reset your password";
         $msg = wordwrap($msg,70);
-        $headers = "From: Naiko";
+        $headers = "From: N";
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
         mail($to, $subject, $msg, $headers);
         header('location: pending.php?email=' . $email);
     }else{
@@ -61,6 +62,7 @@ if(isset($_POST['reset-password'])){
 }
 //New password
 if(isset($_POST['new_password'])){
+    session_start();
     $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
 
@@ -76,12 +78,12 @@ if(isset($_POST['new_password'])){
             $new_pass = base64_encode($new_pass);
             $sql = "UPDATE users SET password='$new_pass' WHERE email='$email'";
             $results = mysqli_query($db, $sql);
-            header('location: index.php');
+            header('location: ../index.php');
         }else{
-            array_push($errors, "An error has occurred");
+            array_push($errors, "An error has occurred. Email might've not been found");
         }
     }else{
-        array_push($errors, "An error has occurred");
+        array_push($errors, "An error has occurred (sql, results, email fetch...)");
     }
 }
 ?>
