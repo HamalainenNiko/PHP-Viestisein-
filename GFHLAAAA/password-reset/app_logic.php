@@ -1,9 +1,6 @@
 <?php 
-session_start();
-$errors = [];
-$user_id="";
 
-$db = mysqli_connect('localhost', 'root' ,'', 'multi_login');
+include_once ('config.php');
 
 if(isset($_POST['login_user'])){
     $user_id = mysqli_real_escape_string($db, $_POST['user_id']);
@@ -53,7 +50,7 @@ if(isset($_POST['reset-password'])){
 
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
         $headers .= "From: N";
-        $msg = "Click on this <a href=\"new_password.php?token=" .$token. "\">link</a> to reset your password";
+        $msg = "Click on this <a href=\"localhost/nikoHamalainen/random/GFHLAAAA/password-reset/new_password.php?token=" .$token. "\">link</a> to reset your password";
         $msg = wordwrap($msg,70);
 
         mail($to, $subject, $msg, $headers);
@@ -81,7 +78,7 @@ if(isset($_POST['new_password'])){
             $results = mysqli_query($db, $sql);
             header('location: ../index.php');
         }else{
-            array_push($errors, "An error has occurred. Email might've not been found");
+            array_push($errors, "An error has occurred.");
         }
     }else{
         array_push($errors, "An error has occurred (sql, results, email fetch...)");
