@@ -1,8 +1,5 @@
-<?php include('app_logic.php'); 
-include('../functions.php');
-if(isLoggedIn()){
-    header('location:change-pass.php');
-}
+<?php 
+include('app_logic.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">

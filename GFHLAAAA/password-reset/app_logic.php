@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $errors = [];
 $user_id="";
 
@@ -50,10 +50,12 @@ if(isset($_POST['reset-password'])){
 
         $to = $email;
         $subject = "Reset your password ";
-        $msg = "Click on this <a href=new_password.php?token=" .$token. ">link</a> to reset your password";
-        $msg = wordwrap($msg,70);
-        $headers = "From: N";
+
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $headers .= "From: N";
+        $msg = "Click on this <a href=\"new_password.php?token=" .$token. "\">link</a> to reset your password";
+        $msg = wordwrap($msg,70);
+
         mail($to, $subject, $msg, $headers);
         header('location: pending.php?email=' . $email);
     }else{
@@ -62,7 +64,6 @@ if(isset($_POST['reset-password'])){
 }
 //New password
 if(isset($_POST['new_password'])){
-    session_start();
     $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
 
