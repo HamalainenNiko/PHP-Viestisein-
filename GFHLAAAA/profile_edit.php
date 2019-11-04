@@ -1,5 +1,4 @@
 <?php 
-
 include('functions.php');
 if(!isLoggedIn()){
     $_SESSION['msg'] = "Login before editing profile";
@@ -50,7 +49,7 @@ if(!isLoggedIn()){
               <div class="text-center img-placeholder"  onClick="triggerClick()">
                 <h4>Update image</h4>
               </div>
-              <img src='images/placeholder.jfif' onClick="triggerClick()" id="profileDisplay" width=95%>
+              <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' onClick="triggerClick()" id="profileDisplay" width=95%>
             </span>
             <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
             <label>Profile Image</label><br><br>

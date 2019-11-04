@@ -50,10 +50,9 @@ function register(){
         }
     }
 
-    if (count($errors) == 0) {
+    if(count($errors) == 0) {
         $password = base64_encode($password_1); //Encrypt password before saving
-
-		if (isset($_POST['user_type'])) {
+		if(isset($_POST['user_type'])){
 			$user_type = e($_POST['user_type']);
 			$query = "INSERT INTO users (username, user_type, password, email) 
 					  VALUES('$username', '$user_type', '$password', '$email')";
@@ -180,6 +179,7 @@ if(isset($_POST['save_profile'])){
     $id = $_SESSION['user']['id'];
 
     $user = $_POST['username'];
+
     $info = mysqli_real_escape_string($db, $_POST['bio']);
     $profileImageName = time() . '-' . $_FILES['profileImage']['name'];
 
@@ -191,15 +191,21 @@ if(isset($_POST['save_profile'])){
         $msg_class = "alert-danger";
     }
 
-    if(file_exists($target_file)){
-        $msg = "File already exists";
-        $msg_class = "alert-danger";
-    }
 
     if(empty($error)){
+
+        if(!$user){
+            $user = $_SESSION['user']['username'];
+        }
+
         if(!$profileImageName){
             $profileImageName = $_SESSION['user']['profile_image'];
         }
+
+        if(!$info){
+            $info = $_SESSION['user']['info'];
+        }
+
         if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
             $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){
