@@ -67,6 +67,7 @@ if(!isLoggedIn()){
             <button type="submit" name="save_profile" class="btn btn-primary btn-block">Save User</button>
           </div>
         </form>
+        <?php var_dump($_SESSION);?>
       </div>
     </div>
   </div>
