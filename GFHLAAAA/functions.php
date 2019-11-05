@@ -199,7 +199,7 @@ if(isset($_POST['save_profile'])){
         }
 
         if(!$profileImageName){
-            $profileImageName = $_SESSION['user']['profile_image'];
+            $profileImageName = 'RE'.$_SESSION['user']['profile_image'];
         }
 
         if(!$info){
