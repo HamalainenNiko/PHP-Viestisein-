@@ -48,5 +48,7 @@ include('app_logic.php');
             <button type="submit" name="reset-password" class="login-btn">Submit</button>
         </div>
     </form>
+<?php    var_dump($_SESSION);
+?>
 </body>
 </html>

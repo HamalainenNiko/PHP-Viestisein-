@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script2.js"></script>
+    <script src="script3.js"></script>
+    
     
 </head>
 <body>
@@ -50,7 +52,8 @@
         </h3>
     </div>
     <?php endif ?>
-    <div  class="card">
+    <form action="profile.php" class="card" method="post" enctype="multipart/form-data">
+
 <?php 
     $id = $_SESSION['user']['id'];
     $id = mysqli_real_escape_string($db,$id);
@@ -64,11 +67,28 @@
         echo '<p>Bio: <br>'.$row['info'].'</p>';
         echo '<p>G.F.H.L.A.A.A.A</p>';
         echo '<h5><a href="profile_edit.php">Edit Profile</a></h5>';
-        echo '<h6><a href="password-reset/enter_email.php">Change Password</h6>';
+        echo '<h6><a href="password-reset/enter_email.php">Change Password</a></h6>';
         echo '<p><button></button></p>';
         
     }
     ?>
-    </div>
+
+    </form>
+          <h2 class="text-center mb-3 mt-3">Profile</h2>
+          <?php if (!empty($msg)): ?>
+            <div class="alert <?php echo $msg_class ?>" role="alert">
+              <?php echo $msg; ?>
+            </div>
+          <?php endif; ?>
+          <div class="form-group text-center" style="position: relative;" >
+            <span class="img-div">
+              <div class="text-center img-placeholder"  onClick="triggerClick()">
+                <h4>Update image</h4>
+              </div>
+              <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' onClick="triggerClick()" id="profileDisplay" width=95%>
+            </span>
+            <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
+            <label>Profile Image</label><br><br>
+          </div>
 </body>
 </html>

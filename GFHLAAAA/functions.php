@@ -106,6 +106,7 @@ function isLoggedIn() {
     }
 }
 
+//logout
 if(isset($_GET['logout'])){
     session_destroy();
     unset($_SESSION['user']);
@@ -164,13 +165,6 @@ function isAdmin(){
     }
 }
 
-if(isset($_POST['update_btn'])){
-    update();
-}
-
-
-
-
 
 //updates database information
 if(isset($_POST['save_profile'])){
@@ -191,7 +185,6 @@ if(isset($_POST['save_profile'])){
         $msg_class = "alert-danger";
     }
 
-
     if(empty($error)){
 
         if(!$user){
@@ -199,7 +192,7 @@ if(isset($_POST['save_profile'])){
         }
 
         if(!$profileImageName){
-            $profileImageName = 'RE'.$_SESSION['user']['profile_image'];
+            $profileImageName =$_SESSION['user']['profile_image'];
         }
 
         if(!$info){

@@ -48,7 +48,7 @@ if(isset($_POST['reset-password'])){
         $to = $email;
         $subject = "Reset your password ";
 
-        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $headers = "Content-Type: text/html; charset=UTF-8\r\n";
         $headers .= "From: N";
         $msg = "Click on this <a href=\"localhost/nikoHamalainen/random/GFHLAAAA/password-reset/new_password.php?token=" .$token. "\">link</a> to reset your password";
         $msg = wordwrap($msg,70);
