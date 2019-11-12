@@ -22,6 +22,9 @@
         <div class="form-group">
             <button type="submit" name="new_password" class="login-btn">Submit</button>
         </div>
+        <?php 
+        var_dump($_GET);
+        ?>
     </form>
 </body>
 </html>
