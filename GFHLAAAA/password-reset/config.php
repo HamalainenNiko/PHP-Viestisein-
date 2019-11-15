@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$token = "";
 $errors = [];
 $user_id="";
 

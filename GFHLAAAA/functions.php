@@ -165,6 +165,14 @@ function isAdmin(){
     }
 }
 
+function isOwner(){
+    if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == "owner"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 
 //updates database information
 if(isset($_POST['save_profile'])){
@@ -186,19 +194,15 @@ if(isset($_POST['save_profile'])){
     }
 
     if(empty($error)){
-
         if(!$user){
             $user = $_SESSION['user']['username'];
         }
-
         if(!$profileImageName){
             $profileImageName =$_SESSION['user']['profile_image'];
         }
-
         if(!$info){
             $info = $_SESSION['user']['info'];
         }
-
         if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
             $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){

@@ -52,28 +52,8 @@
         </h3>
     </div>
     <?php endif ?>
+
     <form action="profile.php" class="card" method="post" enctype="multipart/form-data">
-
-<?php 
-    $id = $_SESSION['user']['id'];
-    $id = mysqli_real_escape_string($db,$id);
-    $sql = "SELECT * FROM users WHERE id='" . $id . "'";
-    $result = mysqli_query($db, $sql);
-    
-    while($row = mysqli_fetch_array($result)){
-        echo "<img src='images/" .$row['profile_image']."' width=100%/>";
-        echo '<h1>'.$row['username'].'</h1>';
-        echo '<p class=title><i  style=color: #888;>('.$_SESSION['user']['user_type'].') <br></p>';
-        echo '<p>Bio: <br>'.$row['info'].'</p>';
-        echo '<p>G.F.H.L.A.A.A.A</p>';
-        echo '<h5><a href="profile_edit.php">Edit Profile</a></h5>';
-        echo '<h6><a href="password-reset/enter_email.php">Change Password</a></h6>';
-        echo '<p><button></button></p>';
-        
-    }
-    ?>
-
-    </form>
           <h2 class="text-center mb-3 mt-3">Profile</h2>
           <?php if (!empty($msg)): ?>
             <div class="alert <?php echo $msg_class ?>" role="alert">
@@ -83,12 +63,20 @@
           <div class="form-group text-center" style="position: relative;" >
             <span class="img-div">
               <div class="text-center img-placeholder"  onClick="triggerClick()">
-                <h4>Update image</h4>
               </div>
               <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' onClick="triggerClick()" id="profileDisplay" width=95%>
             </span>
-            <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
-            <label>Profile Image</label><br><br>
+            <input type="file" name="save_profile" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
+            <label>Profile Image</label><br>
+            <h1><?php echo $_SESSION['user']['username']?></h1>
+            <p class=title><i  style='color: #888'>(<?php echo $_SESSION['user']['user_type']?>)</i></p>
+            <p>Bio: <br><?php echo $_SESSION['user']['info'];?></p>
+            <h5><a href="profile_edit.php">Edit Profile</a></h5>
+            <h6><a href="password_reset/enter_email.php">Change Password</a></h6>
+            <button></button>
           </div>
+    </form>
+    <?php var_dump($_SESSION);?>
+
 </body>
 </html>

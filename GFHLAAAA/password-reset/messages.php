@@ -1,6 +1,3 @@
-<?php 
-include('app_logic.php');
-?>
   <?php if(count($errors) > 0) :?>
     <div class="msg">
         <?php foreach($errors as $error) : ?>
