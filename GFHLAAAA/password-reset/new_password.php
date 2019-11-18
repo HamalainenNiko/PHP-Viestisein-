@@ -1,4 +1,6 @@
-
+<?php 
+include('app_logic.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

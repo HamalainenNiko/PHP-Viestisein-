@@ -42,6 +42,7 @@ if(isset($_POST['reset-password'])){
 
 //New password
 if(isset($_POST['new_password'])){
+    $token = $_GET['token'];
     $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
     if(empty($new_pass) || empty($new_pass_c)) array_push($errors, "Password is required");
