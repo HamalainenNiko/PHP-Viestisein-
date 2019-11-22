@@ -1,10 +1,8 @@
 <?php 
 
-include_once ('config.php');
+include ('config.php');
 
-if(isset($_GET['token'])){
-    $_SESSION['token']=mysqli_real_escape_string($db,$_GET['token']);
-}
+
 //email
 
 if(isset($_POST['reset-password'])){
@@ -44,6 +42,10 @@ if(isset($_POST['reset-password'])){
 
 //New password
 if(isset($_POST['new_password'])){
+
+    $_SESSION['token'] = mysqli_real_escape_string($db, $_GET['token']);
+
+    $token = $_SESSION['token'];
 
     $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
