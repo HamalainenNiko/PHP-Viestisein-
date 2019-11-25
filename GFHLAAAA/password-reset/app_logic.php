@@ -1,11 +1,13 @@
 <?php 
 
-include ('config.php');
+include_once ('config.php');
 
 
 //email
 
 if(isset($_POST['reset-password'])){
+    session_reset();
+
     $sent = "";
     $email = mysqli_real_escape_string($db, $_POST['email']);
     $query = "SELECT email FROM users WHERE email='$email'";
@@ -41,17 +43,19 @@ if(isset($_POST['reset-password'])){
 }
 
 //New password
+if(isset($_GET['token'])){
+    $token = $_GET['token'];
+    echo "Tässä lomake";
+}
+
 if(isset($_POST['new_password'])){
-
-    $_SESSION['token'] = mysqli_real_escape_string($db, $_GET['token']);
-
-    $token = $_SESSION['token'];
 
     $new_pass = mysqli_real_escape_string($db, $_POST['new_pass']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['new_pass_c']);
     if(empty($new_pass) || empty($new_pass_c)) array_push($errors, "Password is required");
     if($new_pass !== $new_pass_c) array_push($errors, "Passwords don't match");
     if(count($errors) == 0){
+
         $sql ="SELECT email FROM password_resets WHERE token='$token' LIMIT 1";
         $results = mysqli_query($db, $sql);
         $email = mysqli_fetch_assoc($results)['email'];
@@ -64,7 +68,7 @@ if(isset($_POST['new_password'])){
             $del = "DELETE * FROM password_resets WHERE token='$token' LIMIT 1";
             $results = mysqli_query($db, $del);
             header('location: ../index.php');
-
+            
         }else{
             array_push($errors, "An error has occurred.");
         }
@@ -72,4 +76,6 @@ if(isset($_POST['new_password'])){
         array_push($errors, "An error has occurred (sql, results, email fetch...)");
     }
 }
+
+
 ?>

@@ -13,6 +13,9 @@ include('app_logic.php');
 <body>
     <form action="new_password.php" class="login-form" method="post">
         <h2 class="form-title">New password</h2>
+        
+        <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
+        
         <div class="form-group">
             <label>New password</label>
             <input type="password" name="new_pass">
