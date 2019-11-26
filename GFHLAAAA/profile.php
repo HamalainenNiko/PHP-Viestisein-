@@ -5,9 +5,10 @@
         header('location: login.php');
     }
 
-    if(isAdmin()){
+    if(isAdmin() || isOwner()){
         header('location: admin/home.php');
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@
         <div class="profile_info" id="myForm">
             <img src=<?php echo 'images/'.$_SESSION['user']['profile_image']; ?>>
         <?php echo $_SESSION['user']['username']; ?>
-        <i  style="color #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
+        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
         <br>
         <a href="profile.php?logout='1'" style="color: red;">logout</a></i>
     </div>
@@ -55,6 +56,9 @@
 
     <form action="profile.php" class="card" method="post" enctype="multipart/form-data">
           <h2 class="text-center mb-3 mt-3">Profile</h2>
+          <div class="text-center img-placeholder"  onClick="triggerClick()">
+                <p>Click here to change your profile picture!</p>
+              </div>
           <?php if (!empty($msg)): ?>
             <div class="alert <?php echo $msg_class ?>" role="alert">
               <?php echo $msg; ?>
@@ -66,7 +70,7 @@
               </div>
               <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' onClick="triggerClick()" id="profileDisplay" width=95%>
             </span>
-            <input type="file" name="save_profile" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
+            <input type="file" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
             <label>Profile Image</label><br>
             <h1><?php echo $_SESSION['user']['username']?></h1>
             <p class=title><i  style='color: #888'>(<?php echo $_SESSION['user']['user_type']?>)</i></p>
@@ -75,8 +79,7 @@
             <h6><a href="password_reset/enter_email.php">Change Password</a></h6>
             <button></button>
           </div>
-    </form>
-    <?php var_dump($_SESSION);?>
-
+    </form><?php
+var_dump($_SESSION); ?>
 </body>
 </html>

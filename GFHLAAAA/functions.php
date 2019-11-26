@@ -166,7 +166,7 @@ function isAdmin(){
 }
 
 function isOwner(){
-    if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == "owner"){
+    if(isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'owner' ){
         return true;
     }else{
         return false;
@@ -176,11 +176,13 @@ function isOwner(){
 
 //updates database information
 if(isset($_POST['save_profile'])){
-    global $db;
 
     $id = $_SESSION['user']['id'];
 
     $user = $_POST['username'];
+    if(!$user){
+        $user = $_SESSION['user']['username'];
+    }
 
     $info = mysqli_real_escape_string($db, $_POST['bio']);
     $profileImageName = time() . '-' . $_FILES['profileImage']['name'];
@@ -203,24 +205,25 @@ if(isset($_POST['save_profile'])){
         if(!$info){
             $info = $_SESSION['user']['info'];
         }
-        if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
+
+
+
+        move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file);
             $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){
                 $msg = "New information uploaded and saved in the Database";
                 $msg_class = "alert-success";
                 $_SESSION['user']['profile_image'] = $profileImageName;
                 $_SESSION['user']['username'] = $user;
+                $_SESSION['user']['info'] = $info;
                 header('location: profile.php');
             } else {
                 $msg = "There was an error in the database";
                 $msg_class = "alert-danger";
             }
-        }else{
-            $msg = "There was an error while uploading the file";
-            $msg_class = "alert-danger";
         }
     }
-}
+
 
 
 

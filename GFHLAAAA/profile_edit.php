@@ -31,9 +31,6 @@ if(!isLoggedIn()){
     </section>    
 </header>
 
-
-
-
     <div class="container">
     <div class="row">
       <div class="col-4 offset-md-4 form-div">

@@ -1,12 +1,12 @@
 <?php 
 include('../functions.php');
 
-if(!isAdmin()){
-    $_SESSION['msg'] = "You must log in first";
-    header('location: ../login.php');
+if(isOwner() || isAdmin()){
+    
+}else{
+    header('location: ../profile.php');
+    $_SESSION['msg'] = 'You must be admin or higher to access this site';
 }
-
-
 
 if(isset($_GET['logout'])){
     session_destroy();
@@ -84,8 +84,7 @@ if(isset($_GET['logout'])){
         echo '<p>G.F.H.L.A.A.A.A</p>';
         echo '<h5><a href="../profile_edit.php">Edit Profile</a></h5>';
         echo '<h6><a href="../password-reset/enter_email.php">Change Password</h6>';
-        echo '<p><button></button></p>';
-        
+        echo '<button></button>';
     }
     ?>
 </div>

@@ -50,7 +50,7 @@
         echo '<p class=title><i  style=color: #888;>('.$row['user_type'].') <br></p>';
         echo '<p>Bio: <br>'.$row['info'].'</p>';
         echo '<p>G.F.H.L.A.A.A.A</p>';
-        echo '<p><button></button></p>';
+        echo '<button></button>';
       }
       ?>
   </div>

@@ -4,10 +4,10 @@ include('../functions.php');
 if(!isOwner()){
     if(isLoggedIn()){
         header('location: ../profile.php');
-        $_SESSION['msg'] = "You must be the Owner to access this site";
+        echo "You must be the Owner to access this site";
     }else{
     header('location: ../login.php');
-    $_SESSION['msg'] = "You must be the owner to create new Admins";
+    echo "You must be the owner to create new Admins";
     }
 }
 
