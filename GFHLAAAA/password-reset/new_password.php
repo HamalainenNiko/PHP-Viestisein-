@@ -27,14 +27,7 @@ include('app_logic.php');
         <div class="form-group">
             <button type="submit" name="new_password" class="login-btn">Submit</button>
         </div>
-        <?php 
-        echo '<br>GET dump:';
-        var_dump($_GET);
-        echo 'SESSION dump:';
-        var_dump($_SESSION);
-        echo 'POST dump:';
-        var_dump($_POST);
-        ?>
+
     </form>
 </body>
 </html>

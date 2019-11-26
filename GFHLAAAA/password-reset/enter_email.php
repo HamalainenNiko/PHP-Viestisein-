@@ -36,19 +36,17 @@ include('app_logic.php');
 			  </div>
     </section>    
   </header>
-    <form class="card" action="enter_email.php" method="post">
+    <form class="card" action="enter_email.php" method="post"><br>
         <h2 clasS="form-title">Reset Password</h2>
 
         <?php include('messages.php'); ?>
         <div class="form-group">
             <label>Your email address</label>
             <input type="email" name="email">
-        </div>
+        </div><br>
         <div class="form-group">
             <button type="submit" name="reset-password" class="login-btn">Submit</button>
         </div>
     </form>
-<?php    var_dump($_SESSION);
-?>
 </body>
 </html>
