@@ -1,7 +1,9 @@
 <?php 
 include('../functions.php');
 
-if(!isAdmin()){
+if(isOwner() || isAdmin()){
+
+}else{
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
 }

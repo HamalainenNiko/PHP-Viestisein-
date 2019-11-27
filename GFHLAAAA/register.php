@@ -24,7 +24,6 @@ include('functions.php')
     <form method="post" id="box"action="register.php">
     <h2>Register</h2>
 
-    <!-- https://codewithawa.com/posts/admin-and-user-login-in-php-and-mysql-database --> 
     <?php echo display_error(); ?>
 	<div class="input-group">
 		<label>Username</label>

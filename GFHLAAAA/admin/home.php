@@ -1,6 +1,6 @@
 <?php 
 include('../functions.php');
-if(isOwner() || isAdmin()){
+if(isAdmin() || isOwner()){
 
 }else{
     header('location: ../profile.php');
@@ -76,6 +76,7 @@ if(isset($_GET['logout'])){
                     echo '<h6><a href="../password-reset/enter_email.php">Change Password</h6>';
                     echo '<button></button>';
                 }
+                
             ?>
         </div>
     </body>
