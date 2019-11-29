@@ -73,6 +73,8 @@ function register(){
 	}
 }
 
+
+
 function getUserById($id){
 	global $db;
 	$query = "SELECT * FROM users WHERE id=" . $id;
@@ -118,7 +120,7 @@ if(isset($_POST['login_btn'])){
     login();
 }
 
-//user login
+//user/admin login
 function login(){
     global $db, $username, $errors;
 
@@ -206,8 +208,6 @@ if(isset($_POST['save_profile'])){
             $info = $_SESSION['user']['info'];
         }
 
-
-
         move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file);
             $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){
@@ -224,7 +224,32 @@ if(isset($_POST['save_profile'])){
         }
     }
 
+if(isset($_POST['create_board'])){
+    create();
+}
 
+function create(){
+    $channel = $_POST['boardname'];
+    $user = $_SESSION['user']['username'];
+    $id = $_SESSION['user']['id'];
+
+    $sql = "INSERT INTO boards(creator, channelname) VALUES ('$user', '$channel')";
+    $results = mysqli_query($db, $sql);
+    if(empty($subject)){
+        array_push($errors, "Board subject is needed");
+    }
+    $create = "CREATE TABLE '$channel' (
+        id INT(50) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        comments VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        time VARCHAR(255) NOT NULL,
+        date VARCHAR(255) NOT NULL,
+        PRIMARY KEY(id)
+        
+        
+        )"
+
+}
 
 
 ?>
