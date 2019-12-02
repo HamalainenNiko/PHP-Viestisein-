@@ -224,32 +224,23 @@ if(isset($_POST['save_profile'])){
         }
     }
 
-if(isset($_POST['create_board'])){
-    create();
-}
-
-function create(){
-    $channel = $_POST['boardname'];
-    $user = $_SESSION['user']['username'];
-    $id = $_SESSION['user']['id'];
-
-    $sql = "INSERT INTO boards(creator, channelname) VALUES ('$user', '$channel')";
-    $results = mysqli_query($db, $sql);
-    if(empty($subject)){
-        array_push($errors, "Board subject is needed");
+    if(isset($_POST['send_msg'])){
+        create();
     }
-    $create = "CREATE TABLE '$channel' (
-        id INT(50) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        comments VARCHAR(255) NOT NULL,
-        name VARCHAR(255) NOT NULL,
-        time VARCHAR(255) NOT NULL,
-        date VARCHAR(255) NOT NULL,
-        PRIMARY KEY(id)
-        
-        
-        )"
+    
+    function create(){
+        $channel = $_POST['boardname'];
+        $user = $_SESSION['user']['username'];
+        $id = $_SESSION['user']['id'];
+    
+        $sql = "INSERT INTO board(creator, channelname) VALUES ('$user', '$channel')";
+        $results = mysqli_query($db, $sql);
+        if(empty($subject)){
+            array_push($errors, "Board subject is needed");
+        }
 
-}
+    
+    }
 
 
 ?>
