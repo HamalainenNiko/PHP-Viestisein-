@@ -73,8 +73,6 @@ function register(){
 	}
 }
 
-
-
 function getUserById($id){
 	global $db;
 	$query = "SELECT * FROM users WHERE id=" . $id;
@@ -224,23 +222,11 @@ if(isset($_POST['save_profile'])){
         }
     }
 
-    if(isset($_POST['send_msg'])){
-        create();
-    }
-    
-    function create(){
-        $channel = $_POST['boardname'];
-        $user = $_SESSION['user']['username'];
-        $id = $_SESSION['user']['id'];
-    
-        $sql = "INSERT INTO board(creator, channelname) VALUES ('$user', '$channel')";
-        $results = mysqli_query($db, $sql);
-        if(empty($subject)){
-            array_push($errors, "Board subject is needed");
-        }
-
-    
-    }
-
-
+if(isset($_POST['send_msg'])){
+    $user = $_SESSION['user']['username'];
+    $message = $_POST['message'];
+    $date = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO board (user, message, time) VALUES ('$user','$message','$date')";
+    mysqli_query($db, $sql);
+}
 ?>

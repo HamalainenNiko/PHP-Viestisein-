@@ -39,7 +39,6 @@ if(isset($_POST['reset-password'])){
 //New password
 if(isset($_GET['token'])){
     $token = $_GET['token'];
-    echo "Tässä lomake";
 }
 
 if(isset($_POST['new_password'])){

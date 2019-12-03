@@ -6,6 +6,8 @@ if(isLoggedIn()){
 }else{
     header('location: ../login.php');
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -44,17 +46,27 @@ if(isLoggedIn()){
 			  </div>
     </section>    
   </header>
+<br>
 
-  <form method="post" id="box"action="board.php">
+    <form method="post" action="board.php">
+    <?php 
+    $sql = "SELECT * FROM board";
+    $results = mysqli_query($db, $sql);
 
-    <?php echo display_error(); ?>
-	<div class="input-group">
-		<label>Username</label>
-		<input type="text" name="username" value="<?php echo $username; ?>">
+    while($row = $results->fetch_assoc()){
+      echo $row['user'].', '.$row['time'].' <br />';
+      echo $row['message'].'<br />';
+      echo '<br />';
+    }
+    ?>
+
+    <div class="input-group">
+		<textarea name="message" cols="45" rows="5" value=""></textarea>
     </div>
 	<div class="input-group">
-		<button type="submit" class="btn" name="send_msg">Register</button>
+		<button type="submit" class="btn" name="send_msg">Send message</button>
 	</div>
+
 </form>
 </body>
 </html>
