@@ -48,7 +48,7 @@ if(isLoggedIn()){
   </header>
 <br>
 
-    <form method="post" action="board.php">
+    <form method="post" >
     <?php 
     $sql = "SELECT * FROM board";
     $results = mysqli_query($db, $sql);

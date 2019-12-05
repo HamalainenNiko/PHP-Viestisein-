@@ -12,7 +12,7 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="script2.js"></script>
   </head>
-  <body>
+  <body id="body" class="dark-mode">
     <header>
       <section id="link">   
         <nav>
@@ -23,6 +23,7 @@
           <?php endif ?>
           <?php  if (isset($_SESSION['user'])) : ?>
           <li><a href="profile.php">Profile</a></li>
+          <button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">Dark</button>
         </nav>
         <div class="profile_info">
 		      <a href="profile.php"> <img src=<?php echo 'images/'. $_SESSION['user']['profile_image']; ?>>

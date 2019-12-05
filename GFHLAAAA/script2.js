@@ -1,7 +1,5 @@
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+function toggleDarkLight() {
+  var body = document.getElementById("body");
+  var currentClass = body.className;
+  body.className = currentClass == "dark-mode" ? "light-mode" : "dark-mode";
+}
