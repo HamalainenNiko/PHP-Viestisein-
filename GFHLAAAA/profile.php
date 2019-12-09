@@ -76,10 +76,10 @@
             <p class=title><i  style='color: #888'>(<?php echo $_SESSION['user']['user_type']?>)</i></p>
             <p>Bio: <br><?php echo $_SESSION['user']['info'];?></p>
             <h5><a href="profile_edit.php">Edit Profile</a></h5>
-            <h6><a href="password_reset/enter_email.php">Change Password</a></h6>
+            <h6><a href="password-reset/enter_email.php">Change Password</a></h6>
             <button></button>
           </div>
-    </form><?php
-var_dump($_SESSION); ?>
+    </form>
+
 </body>
 </html>

@@ -33,14 +33,14 @@ if(isLoggedIn()){
           <li><a href="../profile.php">Profile</a></li>
         </nav>
         <div class="profile_info">
-		      <a href="../profile.php"> <img src=<?php echo 'images/'. $_SESSION['user']['profile_image']; ?>>
+		      <a href="../profile.php"> <img src=<?php echo '../images/'. $_SESSION['user']['profile_image']; ?>>
           </a>
 				  <strong>
             <?php echo $_SESSION['user']['username']; ?>
           </strong>
 				  <small>
 					  <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> <br>
-					  <a href="messages.php?logout='1'" style="color: red;">logout</a>
+					  <a href="board.php?logout='1'" style="color: red;">logout</a>
 				  </small>
 				  <?php endif ?>
 			  </div>

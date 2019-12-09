@@ -228,5 +228,10 @@ if(isset($_POST['send_msg'])){
     $date = date('Y-m-d H:i:s');
     $sql = "INSERT INTO board (user, message, time) VALUES ('$user','$message','$date')";
     mysqli_query($db, $sql);
+}else{
+    return false;
 }
+    
+    
+
 ?>
