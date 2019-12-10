@@ -36,6 +36,8 @@ if(isset($_GET['logout'])){
                     <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
                     <li><a href="users.php">Manage Users</a></li>
                     <li><a href="create_user.php">Create User</a></li>
+                    <li><a href="../messageboards/board.php" id="right">Messages</a></li>
+
                 </nav>
                 <div class="profile_info">
                     <img src=<?php echo '../images/'.$_SESSION['user']['profile_image']; ?>>

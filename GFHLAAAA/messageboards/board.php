@@ -6,10 +6,7 @@ if(isLoggedIn()){
 }else{
     header('location: ../login.php');
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +21,7 @@ if(isLoggedIn()){
 <header>
       <section id="link">   
         <nav>
-          <li><a href="#" id="left">G.F.H.L.A.A.A.A</a></li>
+          <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
           <?php if(!isset($_SESSION['user'])) : ?>
           <li><a href="../login.php" id="right">Login</a></li>
           <li><a href="../register.php" >Register</a></li>
@@ -48,21 +45,25 @@ if(isLoggedIn()){
   </header>
 <br>
 
-    <form method="post" action="board.php">
-    <?php 
-    $sql = "SELECT * FROM board";
-    $results = mysqli_query($db, $sql);
+    <form method="post" id="messages" action="board.php">
+    <div class="msgs">
+      <?php 
+        $sql = "SELECT * FROM board";
+        $results = mysqli_query($db, $sql);
 
-    while($row = $results->fetch_assoc()){
-      echo $row['user'].', '.$row['time'].' <br />';
-      echo $row['message'].'<br />';
-      echo '<br />';
-    }
-    ?>
 
-    <div class="input-group">
+        while($row = $results->fetch_assoc()){
+          echo $row['user'].', '.$row['time'].' <br />';
+          echo $row['message'].'<br />';
+          echo '<br />';
+        }
+
+
+      ?>
+  </div>
+  <div class="input-group">
 		<textarea name="message" cols="45" rows="5" value=""></textarea>
-    </div>
+  </div>
 	<div class="input-group">
 		<button type="submit" class="btn" name="send_msg">Send message</button>
 	</div>

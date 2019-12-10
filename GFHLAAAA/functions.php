@@ -219,6 +219,7 @@ if(isset($_POST['save_profile'])){
                 $msg = "There was an error in the database";
                 $msg_class = "alert-danger";
             }
+
         }
     }
 

@@ -174,3 +174,10 @@ select#user_type{
   .show {
       display:block;
   }
+
+  #msgs{
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid #000000;
+    background-color: #d6d6d6;
+  }

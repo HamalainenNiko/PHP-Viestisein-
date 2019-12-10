@@ -30,6 +30,8 @@
     <section id="link">   
         <nav>
             <a href="index.php" id="left">G.F.H.L.A.A.A.A</a>
+            <li><a href="messageboards/board.php" id="right">Messages</a></li>
+
         </nav>
         <div class="profile_info" id="myForm">
             <img src=<?php echo 'images/'.$_SESSION['user']['profile_image']; ?>>

@@ -21,6 +21,7 @@
         <?php endif ?>
         <?php  if (isset($_SESSION['user'])) : ?>
         <li><a href="profile.php">Profile</a></li>
+        <li><a href="messageboards/board.php" id="right">Messages</a></li>
       </nav>
       <div class="profile_info">
 		    <a href="profile.php"> <img src=<?php echo 'images/'. $_SESSION['user']['profile_image']; ?>></a>
