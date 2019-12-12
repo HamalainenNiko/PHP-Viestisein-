@@ -79,9 +79,6 @@ if(isset($_GET['logout'])){
                     echo '<button></button>';
                 }
             ?>
-
         </div>
     </body>
-    <?php
-    var_dump($_SESSION); ?>
 </html>

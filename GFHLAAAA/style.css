@@ -177,7 +177,12 @@ select#user_type{
 
 #messages{
   background-color: #d3d3d3;
-  border-radius: 24px;
+  border-radius: 12px;
+}
+
+textarea#message{
+  text-align: center;
+  margin-left: 400px;
 }
 
 #msgform{
