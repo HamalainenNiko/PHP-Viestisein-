@@ -32,7 +32,7 @@
             <?php echo $_SESSION['user']['username']; ?>
           </strong>
 				  <small>
-					  <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> <br>
+          <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> <br>
 					  <a href="index.php?logout='1'" style="color: red;">logout</a>
 				  </small>
 				  <?php endif ?>
@@ -44,7 +44,7 @@
     <p> Not funny didn't laugh.<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus quisquam, 
     accusamus culpa impedit rem atque est facere <br> magni ducimus esse laborum ea? Iure esse excepturi debitis facere reprehenderit! Totam ipsa ven
     rem necessitatibus maiores <br> consequatur. Doloremque reiciendis veritatis quod? Harum.
-    <ul>They are:
+    <ul>Existing members:
 
     <?php
       $sql = "SELECT * FROM users";

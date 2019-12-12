@@ -36,8 +36,7 @@
         <div class="profile_info" id="myForm">
             <img src=<?php echo 'images/'.$_SESSION['user']['profile_image']; ?>>
         <?php echo $_SESSION['user']['username']; ?>
-        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
-        <br>
+        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> <br>
         <a href="profile.php?logout='1'" style="color: red;">logout</a></i>
     </div>
     </section>    
@@ -58,17 +57,11 @@
 
     <form action="profile.php" class="card" method="post" enctype="multipart/form-data">
           <h2 class="text-center mb-3 mt-3">Profile</h2>
-          <div class="text-center img-placeholder"  onClick="triggerClick()">
-                <p>Click here to change your profile picture!</p>
-              </div>
           <?php if (!empty($msg)): ?>
             <div class="alert <?php echo $msg_class ?>" role="alert">
               <?php echo $msg; ?>
             </div>
           <?php endif; ?>
-          <div class="form-group text-center" style="position: relative;" >
-            <span class="img-div">
-              <div class="text-center img-placeholder"  onClick="triggerClick()">
               </div>
               <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' onClick="triggerClick()" id="profileDisplay" width=95%>
             </span>

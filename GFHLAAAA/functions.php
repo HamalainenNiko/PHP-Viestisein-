@@ -207,6 +207,7 @@ if(isset($_POST['save_profile'])){
         }
 
         move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file);
+
             $sql = "UPDATE users SET profile_image='$profileImageName', username='$user' , info='$info' WHERE id = '$id'";
             if(mysqli_query($db, $sql)){
                 $msg = "New information uploaded and saved in the Database";
@@ -232,7 +233,3 @@ if(isset($_POST['send_msg'])){
 }else{
     return false;
 }
-    
-    
-
-?>

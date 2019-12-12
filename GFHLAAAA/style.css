@@ -175,9 +175,12 @@ select#user_type{
       display:block;
   }
 
-  #msgs{
-    border-radius: 24px;
-    text-align: center;
-    border: 1px solid #000000;
-    background-color: #d6d6d6;
-  }
+#messages{
+  background-color: #d3d3d3;
+  border-radius: 24px;
+}
+
+#msgform{
+  max-width: 500px;
+  margin: auto;
+}

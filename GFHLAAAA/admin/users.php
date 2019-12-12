@@ -40,9 +40,8 @@ if(isset($_GET['logout'])){
                         <?php echo $_SESSION['user']['username']; ?>
                     </strong>
                     <small>
-                        <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)
-                        <br>
-                        <a href="home.php?logout='1'" style="color: red;">logout</a></i>
+                    <i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> <br>
+                        <a href="home.php?logout='1'" style="color: red;">logout</a>
                     </small>
                 </div>
             </section>    
@@ -61,7 +60,7 @@ if(isset($_GET['logout'])){
                     echo "<img src='../images/" .$row['profile_image']."' width=100%/>";
                     echo "<h1>".$row["username"]."</h1>"."<p class=title>".$row["user_type"]."</p>";
                     echo "<p>".$row['info']."</p>"; 
-                    echo '<p><button></button></p></div>';
+                    echo '<p><button></button></div></p>';
                     echo'<br>';
                 } 
             }else{
