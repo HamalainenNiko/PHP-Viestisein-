@@ -22,10 +22,6 @@ if(isLoggedIn()){
     <section id="link">   
       <nav>
         <li><a href="../index.php" id="left">G.F.H.L.A.A.A.A</a></li>
-        <?php if(!isset($_SESSION['user'])) : ?>
-        <li><a href="../login.php" id="right">Login</a></li>
-        <li><a href="../register.php" >Register</a></li>
-        <?php endif ?>
         <?php  if (isset($_SESSION['user'])) : ?>
         <li><a href="../profile.php">Profile</a></li>
       </nav>
@@ -63,6 +59,8 @@ if(isLoggedIn()){
   </div>
 	<div class="input-group">
 		<button type="submit" class="btn" name="send_msg">Send message</button>
+    <?php if (isOwner() || isAdmin()) : ?>
+    <button type="submit" class="btn" name="delete">
 	</div>
 
 </form>

@@ -37,7 +37,6 @@ if(isset($_GET['logout'])){
                     <li><a href="users.php">Manage Users</a></li>
                     <li><a href="create_user.php">Create User</a></li>
                     <li><a href="../messageboards/board.php" id="right">Messages</a></li>
-
                 </nav>
                 <div class="profile_info">
                     <img src=<?php echo '../images/'.$_SESSION['user']['profile_image']; ?>>
@@ -73,7 +72,6 @@ if(isset($_GET['logout'])){
                     echo '<h1>'.$row['username'].'</h1>';
                     echo '<p class=title><i  style=color: #888;>('.$_SESSION['user']['user_type'].') <br></p>';
                     echo '<p>Bio: <br>'.$row['info'].'</p>';
-                    echo '<p>G.F.H.L.A.A.A.A</p>';
                     echo '<h5><a href="../profile_edit.php">Edit Profile</a></h5>';
                     echo '<h6><a href="../password-reset/enter_email.php">Change Password</h6>';
                     echo '<button></button>';

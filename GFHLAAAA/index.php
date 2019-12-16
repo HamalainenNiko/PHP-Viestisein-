@@ -18,8 +18,8 @@
         <nav>
           <li><a href="#" id="left">G.F.H.L.A.A.A.A</a></li>
           <?php if(!isset($_SESSION['user'])) : ?>
-          <li><a href="login.php" id="right">Login</a></li>
-          <li><a href="register.php" >Register</a></li>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="register.php" id="right">Register</a></li>
           <?php endif ?>
           <?php  if (isset($_SESSION['user'])) : ?>
           <li><a href="profile.php">Profile</a></li>

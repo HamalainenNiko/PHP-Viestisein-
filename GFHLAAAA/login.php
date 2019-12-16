@@ -20,7 +20,7 @@
     <section id="link">   
         <nav>
                 <li><a href="index.php" id="left">G.F.H.L.A.A.A.A</a></li>
-              <li><a href="login.php" id="right">Login</a></li>
+              <li><a href="login.php">Login</a></li>
               <li><a href="messageboards/board.php" id="right">Messages</a></li>
               </nav>
     </section>    
