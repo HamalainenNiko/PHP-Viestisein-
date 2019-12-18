@@ -40,8 +40,8 @@
     </section>    
   </header>
   <div class="content">
-    <h2>This is not funny guys.</h2>
-    <p> Not funny didn't laugh.<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus quisquam, 
+    <h2>Lorem Ipsum.</h2>
+    <p> Ipsum Lorem.<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus quisquam, 
     accusamus culpa impedit rem atque est facere <br> magni ducimus esse laborum ea? Iure esse excepturi debitis facere reprehenderit! Totam ipsa ven
     rem necessitatibus maiores <br> consequatur. Doloremque reiciendis veritatis quod? Harum.
     <ul>Existing members:
