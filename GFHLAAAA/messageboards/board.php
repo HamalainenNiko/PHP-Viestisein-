@@ -62,7 +62,7 @@ if(isLoggedIn()){
     <?php if (isOwner() || isAdmin()) : ?>
     <button type="submit" class="btn" name="delete">
 	</div>
-
+    <?php endif ?>
 </form>
 </body>
 </html>
