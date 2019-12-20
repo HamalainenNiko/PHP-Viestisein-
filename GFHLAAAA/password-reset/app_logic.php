@@ -24,7 +24,7 @@ if(isset($_POST['reset-password'])){
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
         $headers .= "From: N";
-        $msg = "Click on this <a href=\"localhost/nikoHamalainen/random/GFHLAAAA/password-reset/new_password.php?token=" .$token. "\">link</a> to reset your password";
+        $msg = "Click on this <a href=\"localhost/randoms/GFHLAAAA/password-reset/new_password.php?token=" .$token. "\">link</a> to reset your password";
         $msg = wordwrap($msg,70);
         if($sent == 0){
             mail($to, $subject, $msg, $headers);
@@ -63,7 +63,7 @@ if(isset($_POST['new_password'])){
             array_push($errors, "An error has occurred.");
         }
     }else{
-        array_push($errors, "An error has occurred (sql, results, email fetch...)");
+        array_push($errors, "An error has occurred due to a failure to update");
     }
 }
 ?>
