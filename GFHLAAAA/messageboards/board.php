@@ -58,11 +58,11 @@ if(isLoggedIn()){
 		<textarea name="message" cols="45" rows="5" value=""></textarea>
   </div>
 	<div class="input-group">
-		<button type="submit" class="btn" name="send_msg">Send message</button>
+    <button type="submit" class="btn" name="send_msg">Send message</button>
+</form>
     <?php if (isOwner() || isAdmin()) : ?>
-    <button type="submit" class="btn" name="delete">
+        <button type="submit" formaction="delete.php">Delete Messages</button>
 	</div>
     <?php endif ?>
-</form>
 </body>
 </html>
