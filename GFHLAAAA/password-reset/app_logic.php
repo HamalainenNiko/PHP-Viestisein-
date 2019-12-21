@@ -63,7 +63,7 @@ if(isset($_POST['new_password'])){
             array_push($errors, "An error has occurred.");
         }
     }else{
-        array_push($errors, "An error has occurred due to a failure to update");
+        array_push($errors, "An error has occurred due to a failure to update the database");
     }
 }
 ?>
