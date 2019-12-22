@@ -41,8 +41,11 @@ include('../functions.php');
         $results = mysqli_query($db, $sql);
         while($row = $results->fetch_assoc()){
             echo '<div id=messages>';
-            echo $row['user'].', <i  style="color: #888;">'.$row['time'].' <br /></i>';
+            echo $row['user'].', <i  style="color: #888;">'.$row['time'].'</i>';
+            echo '<button id=' .$row['id'].' type=submit name=deletemsg >X</button> <br />';
+
             echo ''.$row['message'].'<br />';
+
             echo '</div>';
             echo '<br />';       
         } ?>

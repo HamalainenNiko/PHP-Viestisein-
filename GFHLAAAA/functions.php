@@ -233,3 +233,9 @@ if(isset($_POST['send_msg'])){
 }else{
     return false;
 }
+
+if(isset($_POST['deletemsg'])){
+    $id = $_POST['id'];
+    $sql = "DELETE FROM board WHERE id = $id LIMIT 1";
+    mysqli_query($db, $sql);
+}
