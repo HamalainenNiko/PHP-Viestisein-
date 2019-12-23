@@ -20,7 +20,7 @@ include('../functions.php');
                 <li><a href="../profile.php">Profile</a></li>
             </nav>
             <div class="profile_info">
-            <a href="../profile.php"> <img src=<?php echo '../' . $_SESSION['user']['profile_image']; ?>>
+            <a href="../profile.php"> <img src=<?php echo '../images/' . $_SESSION['user']['profile_image']; ?>>
             </a>
             <strong>
                     <?php echo $_SESSION['user']['username']; ?>
@@ -43,13 +43,15 @@ include('../functions.php');
             echo '<div id=messages>';
             echo $row['user'].', <i  style="color: #888;">'.$row['time'].'</i>';
             echo '<button id=' .$row['id'].' type=submit name=deletemsg >X</button> <br />';
-
             echo ''.$row['message'].'<br />';
-
             echo '</div>';
             echo '<br />';       
         } ?>
+    <?php var_dump($_POST) ?>
+
+
     </form>
+
 
 
 
