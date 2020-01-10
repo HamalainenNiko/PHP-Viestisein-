@@ -23,8 +23,8 @@ if(isset($_POST['reset-password'])){
         $subject = "Reset your password ";
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-        $headers .= "From: N";
-        $msg = "Click on this <a href=\"localhost/nikoHamalainen/random/GFHLAAAA/password-reset/new_password.php?token=" .$token. "\">link</a> to reset your password";
+        $headers .= "From: Naiko";
+        $msg = "Click on this <a href=\"it.esedu.fi/~niko.hamalainen4/projects/random/GFHLAAAA/password-reset/new_password.php?token=" .$token. "\">link</a> to reset your password";
         $msg = wordwrap($msg,70);
         if($sent == 0){
             mail($to, $subject, $msg, $headers);
@@ -39,6 +39,7 @@ if(isset($_POST['reset-password'])){
 //New password
 if(isset($_GET['token'])){
     $token = $_GET['token'];
+    echo 'Token caught';
 }
 
 if(isset($_POST['new_password'])){

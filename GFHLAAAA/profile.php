@@ -63,7 +63,7 @@
             </div>
           <?php endif; ?>
               </div>
-              <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' onClick="triggerClick()" id="profileDisplay" width=95%>
+              <img src='images/<?php echo $_SESSION['user']['profile_image'] ?>' id="profileDisplay" width=95%>
             </span>
             <input type="file" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
             <label>Profile Image</label><br>

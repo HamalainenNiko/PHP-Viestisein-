@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['LAST_ACTIVITY'] = time();
 
-$db = mysqli_connect('localhost','root','','multi_login');
+$db = mysqli_connect('localhost','niko.hamalainen4','Na1ko42123','niko.hamalainen');
 
 $username = "";
 $email = "";
@@ -174,7 +174,7 @@ function isOwner(){
 }
 
 
-//updates database information
+//update database information
 if(isset($_POST['save_profile'])){
 
     $id = $_SESSION['user']['id'];
